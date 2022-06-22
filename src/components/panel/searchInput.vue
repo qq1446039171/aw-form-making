@@ -1,6 +1,6 @@
 <template>
   <div
-    class="select-box"
+    class="widget-content"
     :style="[
       {
         backgroundColor: information.data.backgroundColor
@@ -79,7 +79,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.select-box {
+.widget-content {
   padding: 0px;
   margin: 0px;
   display: flex;
@@ -92,9 +92,7 @@ export default {
     }
   }
 }
-// .select-box:hover {
-//   border: 1px dashed #d21313;
-// }
+
 .diy-input {
   font-size: 14px;
   display: inline-block;
