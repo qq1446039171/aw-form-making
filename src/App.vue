@@ -50,7 +50,7 @@
           :group="{ name: 'pageEdit', pull: true, put: true }"
           animation="300"
         >
-          <transition-group style="min-height: 120px; display: block">
+          <transition-group style="min-height: 200px; display: block">
             <div
               v-for="(item, index) in componentsData"
               :key="index"
