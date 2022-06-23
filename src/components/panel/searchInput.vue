@@ -24,7 +24,7 @@
       ]"
     >
       <div style="position: relative; display: inline-block">
-        <input
+        <div
           type="text"
           class="diy-input"
           :value="information.data.tipsWord"
@@ -50,13 +50,15 @@
                   : 'right'
             }
           ]"
-        />
-        <i
-          class="el-icon-search el-input__icon diy-input-icon"
-          :style="[{ color: information.data.iconColor }]"
-          slot="suffix"
         >
-        </i>
+          {{ information.data.tipsWord }}
+          <i
+            class="el-icon-search el-input__icon diy-input-icon"
+            :style="[{ color: information.data.iconColor }]"
+            slot="suffix"
+          >
+          </i>
+        </div>
       </div>
     </div>
   </div>
@@ -120,6 +122,6 @@ export default {
   top: -3px;
   width: 14px;
   height: 14px;
-  z-index: 9999;
+  z-index: 99;
 }
 </style>
