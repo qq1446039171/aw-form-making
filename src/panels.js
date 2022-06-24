@@ -19,7 +19,7 @@ const panels = {
         }
       },
       {
-        name: 'title',
+        type: 'title',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/title-icon.png',
         title: '标题栏',
         content: {
@@ -38,11 +38,11 @@ const panels = {
           subtitle_font_size: 12,
           more_color: '#999999',
           margin: 20,
-          background_color: '#F5F5F5'
+          backgroundColor: '#F5F5F5'
         }
       },
       {
-        name: 'banner',
+        type: 'banner',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/banner-icon.png',
         title: '轮播图',
         content: [],
@@ -55,7 +55,7 @@ const panels = {
         }
       },
       {
-        name: 'navigation',
+        type: 'navigation',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/navigation-icon.png',
         title: '图文导航',
         content: {
@@ -90,12 +90,12 @@ const panels = {
           nav_line_mun: 4,
           active_color: '#f5212d',
           indicator_style: 1, //指示器样式
-          background_color: '#FFFFFF',
+          backgroundColor: '#FFFFFF',
           text_color: '#333333'
         }
       },
       {
-        name: 'rubik',
+        type: 'rubik',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/rubik-icon.png',
         title: '图片魔方',
         content: {
@@ -112,7 +112,7 @@ const panels = {
         facade: {}
       },
       {
-        name: 'video',
+        type: 'video',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/video-icon.png',
         title: '视频',
         content: {
@@ -127,7 +127,7 @@ const panels = {
         facade: {}
       },
       {
-        name: 'tabs',
+        type: 'tabs',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/tabs-icon.png',
         title: '选项卡',
         content: {
@@ -150,11 +150,11 @@ const panels = {
           chamfer_style: 0, //倒角样式
           margin: 10, //商品间距
           padding: 10, //左右边距
-          background_color: '#F5F5F5'
+          backgroundColor: '#F5F5F5'
         }
       },
       {
-        name: 'notice',
+        type: 'notice',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/notice-icon.png',
         title: '公告',
         content: {
@@ -165,7 +165,7 @@ const panels = {
         facade: {
           title_color: '#f58e20',
           speed: 80,
-          background_color: '#fff5e1'
+          backgroundColor: '#fff5e1'
         }
       }
     ]
@@ -174,7 +174,7 @@ const panels = {
     title: '商品类',
     children: [
       {
-        name: 'goods',
+        type: 'goods',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/goods-icon.png',
         title: '商品',
         content: {
@@ -182,7 +182,7 @@ const panels = {
           goods: [],
           group: {
             id: 0,
-            name: '',
+            type: '',
             limit: 20
           },
           is_title: true,
@@ -196,7 +196,7 @@ const panels = {
           margin: 30, //商品间距
           padding: 20 //左右边距
         },
-        background_color: '#F5F5F5'
+        backgroundColor: '#F5F5F5'
       }
     ]
   },
@@ -204,7 +204,7 @@ const panels = {
     title: '营销类',
     children: [
       {
-        name: 'coupon',
+        type: 'coupon',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/coupon-icon.png',
         title: '优惠券',
         content: {
@@ -217,12 +217,12 @@ const panels = {
         //外观
         facade: {
           list_style: 1,
-          background_color: '#fff5e1',
+          backgroundColor: '#fff5e1',
           title_color: '#ff830b'
         }
       },
       {
-        name: 'task',
+        type: 'task',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/task-icon.png',
         title: '任务中心',
         content: {
@@ -251,7 +251,7 @@ const panels = {
         }
       },
       {
-        name: 'wechatLive',
+        type: 'wechatLive',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/wechat-live-icon.png',
         title: '微信直播',
         content: {
@@ -265,7 +265,7 @@ const panels = {
         },
         facade: {
           list_style: 1,
-          background_color: '#f5f5f5',
+          backgroundColor: '#f5f5f5',
           title_color: '#ff830b',
           cardSpacing: 12,
           leftRightMargins: 12
@@ -277,18 +277,18 @@ const panels = {
     title: '辅助类',
     children: [
       {
-        name: 'blank',
+        type: 'blank',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/blank-icon.png',
         title: '辅助空白',
         content: {},
         //外观
         facade: {
           height: 10,
-          background_color: '#FFFFFF'
+          backgroundColor: '#FFFFFF'
         }
       },
       {
-        name: 'separate',
+        type: 'separate',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/separate-icon.png',
         title: '辅助线',
         content: {
@@ -306,7 +306,7 @@ const panels = {
     title: '其他',
     children: [
       {
-        name: 'wechat',
+        type: 'wechat',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/wechat-icon.png',
         title: '微信公众号',
         content: {},
