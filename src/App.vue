@@ -85,7 +85,7 @@
 import control from '@/components/control-panel.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import ContentPanel from './components/panel/componentPanel'
-import EditPanel from './components/edit/activeEditComponentPanel'
+import EditPanel from './components/edit/componentPanel'
 import Draggable from 'vuedraggable'
 import panels from './panels.js'
 export default {
