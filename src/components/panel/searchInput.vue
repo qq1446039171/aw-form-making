@@ -97,7 +97,8 @@ export default {
 
 .diy-input {
   font-size: 14px;
-  display: inline-block;
+  // display: inline-block;
+  display: block;
   -webkit-appearance: none;
   background-color: #fff;
   color: #c0c4cf;
@@ -105,7 +106,6 @@ export default {
   border-radius: 4px;
   border: 1px solid #dcdfe6;
   box-sizing: border-box;
-  display: inline-block;
   height: 32px;
   line-height: 32px;
   outline: none;
