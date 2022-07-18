@@ -265,7 +265,7 @@ export default {
     .widget-mask {
       position: absolute;
       width: calc(100% + 4px);
-      height: calc(100% + 0px);
+      height: calc(100% + 4px);
       left: -2px;
       top: -2px;
       z-index: 100;

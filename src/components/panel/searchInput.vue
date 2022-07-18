@@ -23,7 +23,7 @@
         }
       ]"
     >
-      <div style="position: relative; display: inline-block">
+      <div style="position: relative">
         <div
           type="text"
           class="diy-input"
@@ -104,7 +104,7 @@ export default {
   color: #c0c4cf;
   background-image: none;
   border-radius: 4px;
-  border: 1px solid #dcdfe6;
+  // border: 1px solid #dcdfe6;
   box-sizing: border-box;
   height: 32px;
   line-height: 32px;
