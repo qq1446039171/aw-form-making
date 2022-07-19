@@ -1,24 +1,11 @@
 # decoration
 
-## Project setup
-```
-npm install
-```
+#### 介绍
+这是photoApp项目打包后可供游客在线预览的项目
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+#### 使用说明
+1.  <a href="https://hbowen.gitee.io/decoration">点这里进行体验</a>
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<a href="https://hbowen.gitee.io/decoration">点这里进行体验</a> <br><br> 
