@@ -213,6 +213,9 @@ export default {
 .content-area {
   flex: 1;
   overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
   // 在移入中间容器后 这些样式应该被隐藏
   .left-widget {
     .widget-icon {
@@ -255,6 +258,7 @@ export default {
   .layout-phone {
     width: 375px;
     min-height: 765px;
+    max-height: 765px;
     margin: 20px auto;
     background: #f5f5f5;
     box-shadow: 0 0 20px 0 rgb(0 0 0 / 5%);
