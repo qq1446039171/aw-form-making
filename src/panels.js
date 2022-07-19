@@ -19,6 +19,21 @@ const panels = {
         }
       },
       {
+        type: 'notice',
+        icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/notice-icon.png',
+        title: '公告',
+        content: {
+          title: '',
+          icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/notice-img.png'
+        },
+        //外观
+        facade: {
+          title_color: '#f58e20',
+          speed: 80,
+          backgroundColor: '#fff5e1'
+        }
+      },
+      {
         type: 'title',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/title-icon.png',
         title: '标题栏',
@@ -151,21 +166,6 @@ const panels = {
           margin: 10, //商品间距
           padding: 10, //左右边距
           backgroundColor: '#F5F5F5'
-        }
-      },
-      {
-        type: 'notice',
-        icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/notice-icon.png',
-        title: '公告',
-        content: {
-          title: '',
-          icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/notice-img.png'
-        },
-        //外观
-        facade: {
-          title_color: '#f58e20',
-          speed: 80,
-          backgroundColor: '#fff5e1'
         }
       }
     ]
