@@ -1,24 +1,9 @@
-# decoration
+# Decoration
 
-## Project setup
-```
-npm install
-```
+#### 介绍
+通过后台自由的对页面进行拖拽装修，生成自定义页面，驱动渲染至小程序页面。
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+#### 使用说明
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<a href="https://hbowen.gitee.io/decoration">点这里进行体验</a> <br><br> 
