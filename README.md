@@ -1,11 +1,9 @@
 # decoration
 
 #### 介绍
-这是photoApp项目打包后可供游客在线预览的项目
+通过后台自由的对页面进行拖拽装修，生成自定义页面，驱动渲染至小程序页面。
 
 
 #### 使用说明
-1.  <a href="https://hbowen.gitee.io/decoration">点这里进行体验</a>
-
 
 <a href="https://hbowen.gitee.io/decoration">点这里进行体验</a> <br><br> 
