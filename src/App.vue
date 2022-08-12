@@ -42,6 +42,7 @@
     <div class="content-area">
       <!-- 循环显示页面面板 -->
       <div class="layout-phone">
+        <div class="layout-phone-header"><div class="layout-phone-title">新建微页面</div></div>
         <!-- 循环显示页面面板 -->
         <draggable
           class="dragArea list-group"
@@ -262,6 +263,32 @@ export default {
     margin: 20px auto;
     background: #f5f5f5;
     box-shadow: 0 0 20px 0 rgb(0 0 0 / 5%);
+
+    .layout-phone-header {
+      user-select: none;
+      height: 64px;
+      width: 100%;
+      background: url(https://cdn2.weimob.com/saas/@assets/saas-fe-retail-web-stc/retail2/images/storeDesign/ad_moible_top.png)
+        no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+    .layout-phone-title {
+      height: 40px;
+      width: 100%;
+      line-height: 40px;
+      position: absolute;
+      top: 22px;
+      left: 50%;
+      transform: translate(-50%);
+      text-align: center;
+      font-size: 15px;
+      font-weight: 600;
+      color: #35323b;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
   }
   .widget {
     position: relative;

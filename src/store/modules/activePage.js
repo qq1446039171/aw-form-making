@@ -1,7 +1,6 @@
 const activePage = {
   state: {
-    // 1.敲了vuex的中间介质要使用的数据
-    activeComponent: {}, // 模板数据
+    activeComponent: {}, // 当前选中的模板数据
     componentsData: [], // 模板组件数据
     currentGoodsId: ''
   },
