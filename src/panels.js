@@ -274,12 +274,13 @@ const panels = {
     title: '辅助类',
     children: [
       {
+        title: '辅助空白',
         type: 'blank',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/blank-icon.png',
-        title: '辅助空白',
+
         content: {},
         //外观
-        facade: {
+        data: {
           height: 10,
           backgroundColor: '#FFFFFF'
         }

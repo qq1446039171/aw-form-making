@@ -3,10 +3,10 @@
     class="widget-content"
     :style="[
       {
-        backgroundColor: information.facade.backgroundColor
+        backgroundColor: information.data.backgroundColor
       },
       {
-        height: information.facade.height +'px'
+        height: information.data.height +'px'
       }
     ]"
   ></div>
