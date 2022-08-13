@@ -16,18 +16,18 @@
         <Item title="边框样式">
           <el-form-item label="搜索框样式">
             <el-radio-group v-model="information.data.inputStyleRadio">
-              <el-radio label="0">方形</el-radio>
-              <el-radio label="1">圆角</el-radio>
-              <el-radio label="2">圆弧</el-radio>
+              <el-radio label="square">方形</el-radio>
+              <el-radio label="circle">圆角</el-radio>
+              <el-radio label="arc">圆弧</el-radio>
             </el-radio-group>
           </el-form-item>
         </Item>
         <Item title="边框样式">
           <el-form-item label="文字对齐">
             <el-radio-group v-model="information.data.wordAlignRadio">
-              <el-radio label="0">居左</el-radio>
-              <el-radio label="1">居中</el-radio>
-              <el-radio label="2">居右</el-radio>
+              <el-radio label="left">居左</el-radio>
+              <el-radio label="center">居中</el-radio>
+              <el-radio label="right">居右</el-radio>
             </el-radio-group>
           </el-form-item>
         </Item>

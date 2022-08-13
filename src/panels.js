@@ -12,23 +12,20 @@ const panels = {
           wordColor: '#999999', // 搜索文字颜色
           iconColor: '#b4b4b4', // 搜索图标颜色
           tipsWord: '请输入关键字进行搜索',
-          inputStyleRadio: '0', // 搜索框类型
-          wordAlignRadio: '0', // 文字对齐方式
+          inputStyleRadio: 'square', // 搜索框类型  方形：square  圆角：circle  圆弧：arc
+          wordAlignRadio: 'left', // 文字对齐方式
           topBottomPx: 5, // 上下编剧
           leftRightPx: 5 // 左右边距
         }
       },
       {
+        title: '公告',
         type: 'notice',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/notice-icon.png',
-        title: '公告',
-        content: {
+        data: {
           title: '',
-          icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/notice-img.png'
-        },
-        //外观
-        facade: {
-          title_color: '#f58e20',
+          icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/notice-img.png',
+          titleColor: '#f58e20',
           speed: 80,
           backgroundColor: '#fff5e1'
         }

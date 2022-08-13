@@ -35,17 +35,17 @@
             { color: information.data.wordColor },
             {
               borderRadius:
-                information.data.inputStyleRadio == '0'
+                information.data.inputStyleRadio == 'square'
                   ? '0px'
-                  : information.data.inputStyleRadio == '1'
+                  : information.data.inputStyleRadio == 'circle'
                   ? '5px'
                   : '15px'
             },
             {
               textAlign:
-                information.data.wordAlignRadio == '0'
+                information.data.wordAlignRadio == 'left'
                   ? 'left'
-                  : information.data.wordAlignRadio == '1'
+                  : information.data.wordAlignRadio == 'center'
                   ? 'center'
                   : 'right'
             }
