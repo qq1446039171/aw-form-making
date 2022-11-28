@@ -41,7 +41,9 @@
     <!-- 中间部分 -->
     <div class="content-area" :style="scrollHeight">
       <div class="layout-header">
-        <el-button type="primary" icon="el-icon-search">搜索</el-button>
+        <el-button type="primary" size="small" icon="el-icon-delete">清空</el-button>
+        <el-button type="primary" size="small" icon="el-icon-view">预览</el-button>
+        <el-button type="primary" size="small" icon="el-icon-tickets">生成JSON</el-button>
       </div>
       <!-- 循环显示页面面板 -->
       <div class="layout">
@@ -61,6 +63,7 @@
               :class="['widget']"
             >
               <component :is="ContentPanel.get(item.type)" :information="item"></component>
+              <!-- <widget-form v-if="!resetJson"  ref="widgetForm" :data="widgetForm" :select.sync="widgetFormSelect"></widget-form> -->
               <!--  边框与操作按钮 -->
               <div class="widget-mask" v-if="index === activeIndex">
                 <div id="widget" class="widget-handle">
