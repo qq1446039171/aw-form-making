@@ -3,7 +3,7 @@ const panels = {
     title: '基础类',
     children: [
       {
-        title: '搜索框',
+        title: '单行文本',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/search-icon.png',
         type: 'searchInput',
         data: {
