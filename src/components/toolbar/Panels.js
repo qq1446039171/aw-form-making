@@ -1,4 +1,4 @@
-const panels = {
+const Panels = {
   basics: {
     title: '基础类',
     children: [
@@ -322,4 +322,4 @@ const panels = {
   }
 }
 
-export default panels
+export default Panels

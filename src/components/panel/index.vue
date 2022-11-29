@@ -107,41 +107,4 @@ export default {
 </script>
 
 <style lang="scss">
-// .widget {
-//   position: relative;
-//   //  高亮的框框 跟操作按钮
-//   .widget-mask {
-//     position: absolute;
-//     width: calc(100% + 4px);
-//     height: calc(100% + 4px);
-//     left: -2px;
-//     top: -2px;
-//     z-index: 100;
-//     border: 2px solid #623ceb;
-//     // opacity: 0;
-//     // display: none;
-//     box-shadow: 0 0 20px 0 rgb(98 60 235 / 20%);
-
-//     .widget-handle {
-//       position: absolute;
-//       right: -43px;
-//       top: 0;
-//       width: 36px;
-//       // height: 143px;
-//       height: 77px;
-//       background: #623ceb;
-//       border-radius: 4px;
-//       .widget-handle-item {
-//         width: 36px;
-//         height: 35.75px;
-//         line-height: 35.75px;
-//         text-align: center;
-//         i {
-//           font-size: 20px;
-//           color: #fff;
-//         }
-//       }
-//     }
-//   }
-// }
 </style>

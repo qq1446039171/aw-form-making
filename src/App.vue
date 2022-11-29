@@ -2,41 +2,7 @@
   <div id="app">
     <!-- 左边部分 -->
     <div class="left-area" :style="scrollHeight">
-      <div class="comp-buttons">
-        <control title="按钮组">
-          <div style="width: 270px" :style="scrollHeight">
-            <!-- 左侧功能栏-开始 -->
-            <el-collapse :value="['basics', 'advanced', 'sales', 'other', 'marketing']">
-              <el-collapse-item :name="index" v-for="(mounted, index) in panels" :key="index">
-                <template slot="title">
-                  <i class="le-icon le-icon-arrow"></i>
-                  <span>{{ mounted.title }}</span>
-                </template>
-                <ul class="fm-collapse-tool">
-                  <draggable
-                    class="dragArea list-group"
-                    :list="mounted.children"
-                    :clone="cloneItem"
-                    :group="{ name: 'pageEdit', pull: 'clone', put: true }"
-                    :options="{ sort: false }"
-                  >
-                    <template v-for="(item, index) in mounted.children">
-                      <li class="widget left-widget" :key="index" data-type="module">
-                        <img class="widget-icon" :src="item.icon" />
-                        <span class="widget-title">{{ item.title }}</span>
-                        <div class="covermask" :key="index">
-                          <span>释放鼠标将组建添加到此处</span>
-                        </div>
-                      </li>
-                    </template>
-                  </draggable>
-                </ul>
-              </el-collapse-item>
-            </el-collapse>
-            <!-- 左侧功能栏-结束 -->
-          </div>
-        </control>
-      </div>
+      <Tool />
     </div>
     <!-- 中间部分 -->
     <div class="content-area" :style="scrollHeight">
@@ -58,21 +24,23 @@
 </template>
 
 <script>
-import control from '@/components/control-panel.vue'
 import { mapGetters } from 'vuex'
-import Content from '@/components/panel/Form'
+import control from '@/components/control-panel.vue'
+
+import Tool from '@/components/toolbar/index'
+import Content from '@/components/panel/index'
 import EditPanel from '@/components/edit/componentPanel'
 import Draggable from 'vuedraggable'
-import panels from './panels.js'
+// import Panels from './Panels'
 export default {
   name: 'App',
-  components: { control, Draggable, Content },
+  components: { control, Draggable, Tool, Content },
 
   data() {
     return {
       EditPanel,
       //  notice 默认图片
-      panels,
+      // Panels,
       compButtons: [
         {
           name: '搜索框',
@@ -100,11 +68,6 @@ export default {
       return {
         height: parseInt(this.fullHeight) + 'px'
       }
-    }
-  },
-  methods: {
-    cloneItem(item) {
-      return JSON.parse(JSON.stringify(item))
     }
   }
 }
