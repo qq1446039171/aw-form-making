@@ -47,37 +47,7 @@
       </div>
       <!-- 循环显示页面面板 -->
       <div class="layout">
-        <!-- 循环显示页面面板 -->
-        <draggable
-          class="dragArea list-group"
-          :list="componentsData"
-          @change="pageChange"
-          :group="{ name: 'pageEdit', pull: true, put: true }"
-          animation="300"
-        >
-          <transition-group style="min-height: 200px; display: block">
-            <div
-              v-for="(item, index) in componentsData"
-              :key="index"
-              @click="checkedComponent(item, index)"
-              :class="['widget']"
-            >
-              <component :is="ContentPanel.get(item.type)" :information="item"></component>
-              <!-- <widget-form v-if="!resetJson"  ref="widgetForm" :data="widgetForm" :select.sync="widgetFormSelect"></widget-form> -->
-              <!--  边框与操作按钮 -->
-              <div class="widget-mask" v-if="index === activeIndex">
-                <div id="widget" class="widget-handle">
-                  <div class="widget-handle-item" @click="delComponent(item, index)">
-                    <i class="le-icon le-icon-trash"></i>
-                  </div>
-                  <div class="widget-handle-item" @click="copyComponent(item)">
-                    <i class="le-icon le-icon-copy"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </transition-group>
-        </draggable>
+        <Content />
       </div>
     </div>
     <!-- 右边部分 -->
@@ -89,18 +59,17 @@
 
 <script>
 import control from '@/components/control-panel.vue'
-import { mapGetters, mapMutations } from 'vuex'
-import ContentPanel from '@/components/panel/componentPanel'
+import { mapGetters } from 'vuex'
+import Content from '@/components/panel/Form'
 import EditPanel from '@/components/edit/componentPanel'
 import Draggable from 'vuedraggable'
 import panels from './panels.js'
 export default {
   name: 'App',
-  components: { control, Draggable },
+  components: { control, Draggable, Content },
 
   data() {
     return {
-      ContentPanel,
       EditPanel,
       //  notice 默认图片
       panels,
@@ -126,7 +95,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['componentsData', 'activeComponent']),
+    ...mapGetters(['activeComponent']),
     scrollHeight() {
       return {
         height: parseInt(this.fullHeight) + 'px'
@@ -134,56 +103,8 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['setActiveComponent']),
-    addBasicBlock(item) {
-      item = {
-        ...item,
-        index: this.componentsData.length + 1
-      }
-      let componentsItem = JSON.stringify(item)
-      this.$store.dispatch('changeComponentsData', JSON.parse(componentsItem))
-    },
-    checkedComponent(item, index) {
-      this.activeIndex = index
-      item.index = index
-      this.setActiveComponent(item)
-    },
-    delComponent(item, index) {
-      this.$confirm('确定删除吗？', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      })
-        .then(() => {
-          this.componentsData.splice(index, 1)
-        })
-        .catch(() => {})
-    },
-
-    copyComponent(item) {
-      item = {
-        ...item,
-        index: this.$store.state.activePage.componentsData.length + 1
-      }
-      let componentsItem = JSON.stringify(item)
-      this.$store.dispatch('changeComponentsData', JSON.parse(componentsItem))
-    },
     cloneItem(item) {
       return JSON.parse(JSON.stringify(item))
-    },
-    pageChange(e) {
-      console.log(e)
-      if (e.moved) {
-        this.activeIndex = e.moved.newIndex
-        e.moved.element.index = e.moved.newIndex
-        console.log(e.moved.element)
-        this.setActiveComponent(e.moved.element)
-      }
-      if (e.added) {
-        this.activeIndex = e.added.newIndex
-        e.added.element.index = e.added.newIndex
-        this.setActiveComponent(e.added.element)
-      }
     }
   }
 }
