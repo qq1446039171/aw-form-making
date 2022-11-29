@@ -16,9 +16,6 @@ const Panels = {
           wordAlignRadio: 'left', // 文字对齐方式
           topBottomPx: 5, // 上下编剧
           leftRightPx: 5 // 左右边距
-
-
-          
         }
       },
       {

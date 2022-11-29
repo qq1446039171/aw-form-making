@@ -18,10 +18,6 @@
     </div>
     <!-- 右边部分 -->
     <div class="right-area" :style="scrollHeight">
-      <!-- <template v-if="activeComponent.length">
-        <component :is="EditPanel.get(activeComponent.type)" :information="activeComponent"></component>
-      </template>
-      <template v-else> 还未添加组件 </template> -->
       <Edit />
     </div>
   </div>
@@ -29,22 +25,17 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import control from '@/components/control-panel.vue'
 
 import Tool from '@/components/toolbar/index'
 import Content from '@/components/panel/index'
 import Edit from '@/components/edit/index'
-
-import EditPanel from '@/components/edit/componentPanel'
-import Draggable from 'vuedraggable'
 // import Panels from './Panels'
 export default {
   name: 'App',
-  components: { control, Draggable, Tool, Content, Edit },
+  components: { Tool, Content, Edit },
 
   data() {
     return {
-      EditPanel,
       compButtons: [
         {
           name: '搜索框',
@@ -63,7 +54,6 @@ export default {
         }
       ],
       fullHeight: document.documentElement.clientHeight,
-      activeIndex: -1 // 当前高亮的组件
     }
   },
   computed: {
