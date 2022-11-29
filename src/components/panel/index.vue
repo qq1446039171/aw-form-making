@@ -40,7 +40,7 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
-import ContentPanel from '@/components/panel/componentPanel'
+import ContentPanel from './componentPanel'
 import Draggable from 'vuedraggable'
 
 export default {

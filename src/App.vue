@@ -18,7 +18,11 @@
     </div>
     <!-- 右边部分 -->
     <div class="right-area" :style="scrollHeight">
-      <component :is="EditPanel.get(activeComponent.type)" :information="activeComponent"></component>
+      <!-- <template v-if="activeComponent.length">
+        <component :is="EditPanel.get(activeComponent.type)" :information="activeComponent"></component>
+      </template>
+      <template v-else> 还未添加组件 </template> -->
+      <Edit />
     </div>
   </div>
 </template>
@@ -29,18 +33,18 @@ import control from '@/components/control-panel.vue'
 
 import Tool from '@/components/toolbar/index'
 import Content from '@/components/panel/index'
+import Edit from '@/components/edit/index'
+
 import EditPanel from '@/components/edit/componentPanel'
 import Draggable from 'vuedraggable'
 // import Panels from './Panels'
 export default {
   name: 'App',
-  components: { control, Draggable, Tool, Content },
+  components: { control, Draggable, Tool, Content, Edit },
 
   data() {
     return {
       EditPanel,
-      //  notice 默认图片
-      // Panels,
       compButtons: [
         {
           name: '搜索框',
