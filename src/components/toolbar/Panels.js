@@ -33,7 +33,7 @@ const Panels = {
         }
       },
       {
-        title: '公告',
+        title: '多行文本',
         type: 'notice',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/notice-icon.png',
         data: {
