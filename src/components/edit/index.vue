@@ -3,7 +3,9 @@
     <template v-if="Object.keys(activeComponent).length">
       <component :is="EditPanel.get(activeComponent.type)" :information="activeComponent"></component>
     </template>
-    <template v-else> 无数据 </template>
+    <template v-else>
+      <div style="text-align: center; margin-top: 20px">无数据</div>
+    </template>
   </div>
 </template>
 

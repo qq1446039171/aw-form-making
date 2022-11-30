@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <!-- 左边部分 -->
     <div class="left-area" :style="scrollHeight">
       <Tool />
