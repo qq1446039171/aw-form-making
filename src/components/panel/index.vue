@@ -1,52 +1,67 @@
 <template>
-  <!-- <el-form
-    :size="data.config.size"
+  <el-form
+    :size="componentsData.config.size"
     label-suffix=":"
-    :label-position="data.config.labelPosition"
-    :label-width="data.config.labelWidth + 'px'"
-  > -->
-  <draggable
-    class="panel"
-    :list="componentsData"
-    @change="pageChange"
-    :group="{ name: 'pageEdit', pull: true, put: true }"
-    animation="300"
+    :label-position="componentsData.config.labelPosition"
+    :label-width="componentsData.config.labelWidth + 'px'"
   >
-    <transition-group style="min-height: 200px; display: block">
-      <div v-for="(item, index) in componentsData" :key="index" @click="checkedComponent(item, index)" class="widget">
-        <component :is="ContentPanel.get(item.type)" :information="item"></component>
-        <!-- <widget-form v-if="!resetJson"  ref="widgetForm" :data="widgetForm" :select.sync="widgetFormSelect"></widget-form> -->
-        <!--  边框与操作按钮 -->
-        <div class="widget-mask" v-if="index === activeIndex">
-          <div id="widget" class="widget-handle">
-            <div class="widget-handle-item" @click="delComponent(item, index)">
-              <i class="le-icon le-icon-trash"></i>
-            </div>
-            <div class="widget-handle-item" @click="copyComponent(item)">
-              <i class="le-icon le-icon-copy"></i>
+    <draggable
+      class="panel"
+      :list="componentsData.list"
+      @change="pageChange"
+      :group="{ name: 'pageEdit', pull: true, put: true }"
+      animation="300"
+    >
+      <transition-group style="min-height: 200px; display: block">
+        <div
+          v-for="(item, index) in componentsData.list"
+          :key="index"
+          @click="checkedComponent(item, index)"
+          class="widget"
+        >
+          <!-- <component :is="ContentPanel.get(item.type)" :information="item"></component> -->
+          <!-- v-if="!resetJson" -->
+          <Form ref="Form" :data="item"></Form>
+
+          <!-- <aw-form-item
+            :key="item.model"
+            :models.sync="models"
+            :widget="item"
+            :rules="rules"
+            :label-width="item.labelWidth ? item.labelWidth + 'px' : componentsData.config.labelWidth + 'px'"
+          >
+          </aw-form-item> -->
+          <!--  边框与操作按钮 -->
+          <div class="widget-mask" v-if="index === activeIndex">
+            <div id="widget" class="widget-handle">
+              <div class="widget-handle-item" @click="delComponent(item, index)">
+                <i class="le-icon le-icon-trash"></i>
+              </div>
+              <div class="widget-handle-item" @click="copyComponent(item)">
+                <i class="le-icon le-icon-copy"></i>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </transition-group>
-  </draggable>
-  <!-- </el-form> -->
+      </transition-group>
+    </draggable>
+  </el-form>
 </template>
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
-import ContentPanel from './componentPanel'
 import Draggable from 'vuedraggable'
+import Form from './FormItem.vue'
 
 export default {
   data() {
     return {
-      ContentPanel,
       activeIndex: -1 // 当前高亮的组件
     }
   },
   components: {
-    Draggable
+    Draggable,
+    Form
   },
   computed: {
     ...mapGetters(['componentsData', 'activeComponent']),
@@ -54,6 +69,9 @@ export default {
       return {
         height: parseInt(this.fullHeight) + 'px'
       }
+    },
+    formJson() {
+      return this.componentsData.list
     }
   },
   methods: {
@@ -71,14 +89,14 @@ export default {
         type: 'warning'
       })
         .then(() => {
-          this.componentsData.splice(index, 1)
+          this.componentsData.list.splice(index, 1)
         })
         .catch(() => {})
     },
     copyComponent(item) {
       item = {
         ...item,
-        index: this.$store.state.activePage.componentsData.length + 1
+        index: this.$store.state.activePage.componentsData.list.length + 1
       }
       let componentsItem = JSON.stringify(item)
       this.$store.dispatch('changeComponentsData', JSON.parse(componentsItem))

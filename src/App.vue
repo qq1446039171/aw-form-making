@@ -18,7 +18,7 @@
     </div>
     <!-- 右边部分 -->
     <div class="right-area" :style="scrollHeight">
-      <Edit />
+      <!-- <Edit /> -->
     </div>
   </div>
 </template>
@@ -33,7 +33,7 @@ export default {
 
   data() {
     return {
-      fullHeight: document.documentElement.clientHeight,
+      fullHeight: document.documentElement.clientHeight
     }
   },
   computed: {
