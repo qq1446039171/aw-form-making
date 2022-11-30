@@ -45,9 +45,9 @@ const Panels = {
         }
       },
       {
+        title: '单选框组',
         type: 'title',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/title-icon.png',
-        title: '标题栏',
         content: {
           style: 1,
           title: '主标题',
