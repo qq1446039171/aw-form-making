@@ -15,8 +15,8 @@ const activePage = {
             maxlength: -1,
             showWordLimit: false,
           },
-          name: '年龄',
-          model: 'age',
+          name: '单行文本',
+          model: '',
           rules: [
             {
               type: 'string',

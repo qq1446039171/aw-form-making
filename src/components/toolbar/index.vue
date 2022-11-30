@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     cloneItem(item) {
-      return JSON.parse(JSON.stringify(item))
+      return JSON.parse(JSON.stringify(item.data))
     }
   }
 }

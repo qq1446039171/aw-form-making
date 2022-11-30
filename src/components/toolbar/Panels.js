@@ -7,15 +7,29 @@ const Panels = {
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/search-icon.png',
         type: 'searchInput',
         data: {
-          backgroundColor: '#f5f5f5', // 搜索区域背景颜色
-          inputBackgroundColor: '#ffffff', // 搜索框背景颜色
-          wordColor: '#999999', // 搜索文字颜色
-          iconColor: '#b4b4b4', // 搜索图标颜色
-          tipsWord: '请输入关键字进行搜索',
-          inputStyleRadio: 'square', // 搜索框类型  方形：square  圆角：circle  圆弧：arc
-          wordAlignRadio: 'left', // 文字对齐方式
-          topBottomPx: 5, // 上下编剧
-          leftRightPx: 5 // 左右边距
+          type: 'input',
+          options: {
+            width: '100%',
+            defaultValue: '',
+            required: true,
+            dataType: 'string',
+            placeholder: '',
+            disabled: false,
+            maxlength: -1,
+            showWordLimit: false
+          },
+          name: '单行文本',
+          model: '',
+          rules: [
+            {
+              type: 'string',
+              message: '单行文本格式不正确'
+            },
+            {
+              required: true,
+              message: '单行文本必须填写'
+            }
+          ]
         }
       },
       {

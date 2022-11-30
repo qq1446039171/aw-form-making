@@ -11,6 +11,7 @@
       @change="pageChange"
       :group="{ name: 'pageEdit', pull: true, put: true }"
       animation="300"
+      @add="handleWidgetAdd"
     >
       <transition-group style="min-height: 200px; display: block">
         <div
@@ -94,8 +95,10 @@ export default {
       let componentsItem = JSON.stringify(item)
       this.$store.dispatch('changeComponentsData', JSON.parse(componentsItem))
     },
+    handleWidgetAdd(evt) {
+      console.log(evt)
+    },
     pageChange(e) {
-      console.log(e)
       if (e.moved) {
         this.activeIndex = e.moved.newIndex
         e.moved.element.index = e.moved.newIndex
@@ -103,8 +106,12 @@ export default {
         this.setActiveComponent(e.moved.element)
       }
       if (e.added) {
+        const key = Date.parse(new Date()) + '_' + Math.ceil(Math.random() * 99999)
+        e.added.element.model == key
         this.activeIndex = e.added.newIndex
         e.added.element.index = e.added.newIndex
+        // 绑定键值
+        this.$set(e.added.element, 'model', e.added.element.type + '_' + key)
         this.setActiveComponent(e.added.element)
       }
     }
