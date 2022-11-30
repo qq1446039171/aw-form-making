@@ -19,21 +19,14 @@
           @click="checkedComponent(item, index)"
           class="widget"
         >
-          <!-- <component :is="ContentPanel.get(item.type)" :information="item"></component> -->
-          <!-- v-if="!resetJson" -->
-          <Form ref="Form" :data="item"></Form>
-
-          <!-- <aw-form-item
-            :key="item.model"
-            :models.sync="models"
-            :widget="item"
-            :rules="rules"
+          <Form
+            ref="Form"
+            :data="item"
             :label-width="item.labelWidth ? item.labelWidth + 'px' : componentsData.config.labelWidth + 'px'"
-          >
-          </aw-form-item> -->
+          ></Form>
           <!--  边框与操作按钮 -->
           <div class="widget-mask" v-if="index === activeIndex">
-            <div id="widget" class="widget-handle">
+            <div class="widget-handle">
               <div class="widget-handle-item" @click="delComponent(item, index)">
                 <i class="le-icon le-icon-trash"></i>
               </div>
@@ -119,10 +112,13 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.panel :before {
+  box-sizing: border-box;
+}
 // 在移入中间容器后 这些样式应该被隐藏 跟 显示
 .panel {
-  .left-widget {
+  ::v-deep .left-widget {
     .widget-icon {
       display: none;
     }
@@ -134,16 +130,11 @@ export default {
       min-height: 40px;
       border: 1px dashed #623ceb;
       background: rgba(98, 60, 235, 0.05);
-      -webkit-transition: 0.3s linear;
       transition: 0.3s linear;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
       align-items: center;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
       justify-content: center;
       font-size: 14px;
       color: #cccccc;
@@ -162,9 +153,12 @@ export default {
     }
   }
 }
-
 .widget {
   position: relative;
+  .el-form-item {
+    padding-bottom: 18px;
+    margin: 2px !important;
+  }
   //  高亮的框框 跟操作按钮
   .widget-mask {
     position: absolute;
@@ -174,8 +168,7 @@ export default {
     top: -2px;
     z-index: 100;
     border: 2px solid #623ceb;
-    // opacity: 0;
-    // display: none;
+    // #409ef
     box-shadow: 0 0 20px 0 rgb(98 60 235 / 20%);
 
     .widget-handle {

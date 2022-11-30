@@ -17,7 +17,7 @@
                 :options="{ sort: false }"
               >
                 <template v-for="(item, index) in mounted.children">
-                  <li class="widget left-widget" :key="index" data-type="module">
+                  <li class="left-widget" :key="index" data-type="module">
                     <img class="widget-icon" :src="item.icon" />
                     <span class="widget-title">{{ item.title }}</span>
                     <div class="covermask" :key="index">

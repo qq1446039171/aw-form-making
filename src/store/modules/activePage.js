@@ -37,7 +37,7 @@ const activePage = {
       state.activeComponent = newCom
     },
     setComponentsData: (state, newData) => {
-      state.componentsData.push(newData)
+      state.componentsData.list.push(newData)
     }
   },
   actions: {
