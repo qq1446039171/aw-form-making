@@ -6,19 +6,14 @@
     :label-width="data.config.labelWidth + 'px'"
   > -->
   <draggable
-    class="dragArea list-group"
+    class="panel"
     :list="componentsData"
     @change="pageChange"
     :group="{ name: 'pageEdit', pull: true, put: true }"
     animation="300"
   >
     <transition-group style="min-height: 200px; display: block">
-      <div
-        v-for="(item, index) in componentsData"
-        :key="index"
-        @click="checkedComponent(item, index)"
-        :class="['widget']"
-      >
+      <div v-for="(item, index) in componentsData" :key="index" @click="checkedComponent(item, index)" class="widget">
         <component :is="ContentPanel.get(item.type)" :information="item"></component>
         <!-- <widget-form v-if="!resetJson"  ref="widgetForm" :data="widgetForm" :select.sync="widgetFormSelect"></widget-form> -->
         <!--  边框与操作按钮 -->
@@ -107,4 +102,84 @@ export default {
 </script>
 
 <style lang="scss">
+// 在移入中间容器后 这些样式应该被隐藏 跟 显示
+.panel {
+  .left-widget {
+    .widget-icon {
+      display: none;
+    }
+    .widget-title {
+      display: none;
+    }
+    // 释放鼠标将组建添加到此处 在此组件中展示
+    .covermask {
+      min-height: 40px;
+      border: 1px dashed #623ceb;
+      background: rgba(98, 60, 235, 0.05);
+      -webkit-transition: 0.3s linear;
+      transition: 0.3s linear;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #cccccc;
+      margin-left: -1px;
+
+      span {
+        font-size: 14px;
+        font-weight: 400;
+        color: #623ceb;
+        line-height: 12px;
+      }
+
+      i {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.widget {
+  position: relative;
+  //  高亮的框框 跟操作按钮
+  .widget-mask {
+    position: absolute;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    left: -2px;
+    top: -2px;
+    z-index: 100;
+    border: 2px solid #623ceb;
+    // opacity: 0;
+    // display: none;
+    box-shadow: 0 0 20px 0 rgb(98 60 235 / 20%);
+
+    .widget-handle {
+      position: absolute;
+      right: -43px;
+      top: 0;
+      width: 36px;
+      // height: 143px;
+      height: 77px;
+      background: #623ceb;
+      border-radius: 4px;
+      .widget-handle-item {
+        width: 36px;
+        height: 35.75px;
+        line-height: 35.75px;
+        text-align: center;
+        i {
+          font-size: 20px;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
 </style>

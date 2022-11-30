@@ -11,7 +11,6 @@
             </template>
             <ul class="fm-collapse-tool">
               <draggable
-                class="dragArea list-group"
                 :list="mounted.children"
                 :clone="cloneItem"
                 :group="{ name: 'pageEdit', pull: 'clone', put: true }"
@@ -57,4 +56,61 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.le-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+.comp-buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+.fm-collapse-tool {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  .covermask {
+    display: none;
+  }
+  li {
+    position: relative;
+    float: left;
+    width: 87px;
+    height: 92px;
+    background: #ffffff;
+    margin-bottom: 8px;
+    z-index: 1px;
+    //border: 1px solid #EBEEF5;
+    text-align: center;
+    cursor: move;
+
+    .le-icon {
+      font-size: 32px;
+      color: rgba(98, 60, 235, 1);
+    }
+
+    .widget-icon {
+      width: 32px;
+      height: 32px;
+      margin-top: 15px;
+    }
+
+    span {
+      display: block;
+      width: 100%;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.65);
+      font-size: 12px;
+    }
+
+    &:hover {
+      box-shadow: 0px 0px 10px 0px rgba(98, 60, 235, 0.1);
+      border-radius: 8px;
+      z-index: 10;
+    }
+  }
+}
+</style>
