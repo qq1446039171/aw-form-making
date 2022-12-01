@@ -38,11 +38,7 @@
         </Item>
         <Item title="效验规则">
           <el-form-item label="是否必填">
-            <el-switch
-              v-model="information.options.required"
-              active-color="#13ce66"
-              inactive-color="#ff4949"
-            >
+            <el-switch v-model="information.options.required" active-color="#13ce66" inactive-color="#ff4949">
             </el-switch>
           </el-form-item>
           <el-form-item label="输入类型">
@@ -60,6 +56,7 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 import control from '@/components/control-panel.vue'
 import Item from './components/Item.vue'
 export default {
@@ -68,15 +65,23 @@ export default {
     Item
   },
   watch: {
-    'information.options.required': function (val) {
-      console.log(val)
-      this.validateRequired(val)
+    'information.options.required': {
+      handler(newVal, oldVal) {
+        this.validateRequired(newVal)
+      },
+      immediate: true
     },
-    'information.options.dataType': function (val) {
-      this.validateDataType(val)
+    'information.options.dataType': {
+      handler(newVal, oldVal) {
+        this.validateDataType(newVal)
+      },
+      immediate: true
     }
   },
   props: ['information'],
+  computed: {
+    ...mapGetters(['componentsData', 'activeComponent'])
+  },
   data() {
     return {
       validator: {
@@ -115,7 +120,8 @@ export default {
       Object.keys(this.validator).forEach((key) => {
         if (this.validator[key]) {
           this.information.rules.push(this.validator[key])
-          console.log(this.$store.state.activePage.componentsData.list[0].rules);
+          // this.$set(this.information.rules, this.information.rules.length + 1, this.validator[key])
+          console.log(this.componentsData.list)
         }
       })
     }
