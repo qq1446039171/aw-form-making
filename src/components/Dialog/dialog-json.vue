@@ -1,10 +1,9 @@
 <template>
-  <el-dialog title="JSON数据" :visible.sync="visible" :close-on-click-modal="false">
-    {{ data }}
-    <span slot="footer" class="dialog-footer">
-      <el-button @click="visible = false">取 消</el-button>
-      <el-button type="primary" @click="save">保 存</el-button>
-    </span>
+  <el-dialog title="JSON数据" :visible.sync="visible" width="900px" :close-on-click-modal="false">
+    <div class="json">
+      <json-viewer :value="data" :expand-depth="10" copyable boxed sort></json-viewer>
+    </div>
+   
   </el-dialog>
 </template>
 
@@ -22,10 +21,13 @@ export default {
       this.visible = true
       this.data = data
     },
-    save(){
-      
-    }
+    save() {}
   }
 }
 </script>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.json {
+  max-height: 500px;
+  overflow-y: auto;
+}
+</style>
