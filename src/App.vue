@@ -20,6 +20,8 @@
     <div class="right-area" :style="scrollHeight">
       <Edit />
     </div>
+
+    <DialogJson ref="refDialogJson"/>
   </div>
 </template>
 
@@ -28,9 +30,10 @@ import { mapGetters } from 'vuex'
 import Tool from '@/components/toolbar/index'
 import Content from '@/components/panel/index'
 import Edit from '@/components/edit/index'
+import DialogJson from '@/components/Dialog/dialog-json.vue'
 export default {
   name: 'App',
-  components: { Tool, Content, Edit },
+  components: { Tool, Content, Edit, DialogJson },
 
   data() {
     return {
@@ -46,8 +49,8 @@ export default {
     }
   },
   methods: {
-    showDialogJson() {
-      console.log(this.componentsData)
+    showDialogJson(){
+      this.$refs.refDialogJson.show(this.componentsData)
     }
   }
 }

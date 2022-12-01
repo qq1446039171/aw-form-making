@@ -21,6 +21,9 @@ export default {
     show(data) {
       this.visible = true
       this.data = data
+    },
+    save(){
+      
     }
   }
 }

@@ -9,20 +9,21 @@
 </template>
 
 <script>
-  export default {
-    props: {},
-    data() {
-      return {
-        visible: false,
-        list: []
-      }
-    },
-    methods: {
-      show(list) {
-        this.visible = true
-        this.list = list
-      }
+export default {
+  props: {},
+  data() {
+    return {
+      visible: false,
+      list: []
     }
+  },
+  methods: {
+    show(list) {
+      this.visible = true
+      this.list = list
+    },
+    save() {}
   }
+}
 </script>
 <style scoped lang="scss"></style>
