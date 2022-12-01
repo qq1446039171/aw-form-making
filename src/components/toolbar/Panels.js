@@ -11,7 +11,7 @@ const Panels = {
           options: {
             width: '100%',
             defaultValue: '',
-            required: true,
+            required: false,
             dataType: 'string',
             placeholder: '',
             disabled: false,
@@ -20,16 +20,7 @@ const Panels = {
           },
           name: '单行文本',
           model: '',
-          rules: [
-            {
-              type: 'string',
-              message: '单行文本格式不正确'
-            }
-            // {
-            //   required: true,
-            //   message: '单行文本必须填写'
-            // }
-          ]
+          rules: []
         }
       },
       {

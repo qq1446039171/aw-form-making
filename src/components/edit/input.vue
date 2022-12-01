@@ -38,7 +38,11 @@
         </Item>
         <Item title="效验规则">
           <el-form-item label="是否必填">
-            <el-switch v-model="information.options.required" active-color="#13ce66" inactive-color="#ff4949">
+            <el-switch
+              v-model="information.options.required"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
             </el-switch>
           </el-form-item>
           <el-form-item label="输入类型">
@@ -63,8 +67,59 @@ export default {
     control,
     Item
   },
+  watch: {
+    'information.options.required': function (val) {
+      console.log(val)
+      this.validateRequired(val)
+    },
+    'information.options.dataType': function (val) {
+      this.validateDataType(val)
+    }
+  },
   props: ['information'],
-  methods: {}
+  data() {
+    return {
+      validator: {
+        type: null,
+        required: null
+        // pattern: null,
+        // range: null,
+        // length: null
+      }
+    }
+  },
+  methods: {
+    validateRequired(val) {
+      if (val) {
+        this.validator.required = {
+          required: true,
+          message: `${this.information.name}必须填写`
+        }
+      } else {
+        this.validator.required = null
+      }
+      this.$nextTick(() => {
+        this.generateRule()
+      })
+    },
+    validateDataType(val) {
+      if (val) {
+        this.validator.type = { type: val, message: this.information.name + '格式不正确' }
+      } else {
+        this.validator.type = null
+      }
+      this.generateRule()
+    },
+    generateRule() {
+      this.information.rules = []
+      Object.keys(this.validator).forEach((key) => {
+        if (this.validator[key]) {
+          this.information.rules.push(this.validator[key])
+          console.log(this.$store.state.activePage.componentsData.list[0].rules);
+        }
+      })
+    }
+  }
 }
 </script>
 
