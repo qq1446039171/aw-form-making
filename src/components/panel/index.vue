@@ -45,7 +45,7 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex'
 import Draggable from 'vuedraggable'
-import Form from './FormItem.vue'
+import Form from './form-item.vue'
 
 export default {
   data() {

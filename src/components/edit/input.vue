@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters } from 'vuex'
 import control from '@/components/control-panel.vue'
 import Item from './components/Item.vue'
 export default {

@@ -9,7 +9,7 @@
       <div class="layout-header">
         <el-button type="primary" size="small" icon="el-icon-delete">清空</el-button>
         <el-button type="primary" size="small" icon="el-icon-view">预览</el-button>
-        <el-button type="primary" size="small" icon="el-icon-tickets">生成JSON</el-button>
+        <el-button type="primary" size="small" icon="el-icon-tickets" @click="showDialogJson">生成JSON</el-button>
       </div>
       <!-- 循环显示页面面板 -->
       <div class="layout">
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Tool from '@/components/toolbar/index'
 import Content from '@/components/panel/index'
 import Edit from '@/components/edit/index'
@@ -37,10 +38,16 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['componentsData']),
     scrollHeight() {
       return {
         height: parseInt(this.fullHeight) + 'px'
       }
+    }
+  },
+  methods: {
+    showDialogJson() {
+      console.log(this.componentsData)
     }
   }
 }
