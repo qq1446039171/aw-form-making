@@ -1,12 +1,12 @@
 <template>
-  <el-form-item :label="data.name" :prop="data.model" :label-width="labelWidth">
+  <el-form-item :label="data.name" :label-width="labelWidth" :class="{ is_req: data.options.required }">
     <template v-if="data.type == 'input'">
       <el-input
         v-if="
           data.options.dataType == 'number' || data.options.dataType == 'integer' || data.options.dataType == 'float'
         "
         type="number"
-        v-model.number="data.defaultValue"
+        v-model.number="data.options.defaultValue"
         :placeholder="data.options.placeholder"
         :style="{ width: data.options.width }"
         :disabled="data.options.disabled"
@@ -15,7 +15,7 @@
       <el-input
         v-else
         type="text"
-        v-model="data.defaultValue"
+        v-model="data.options.defaultValue"
         :disabled="data.options.disabled"
         :placeholder="data.options.placeholder"
         :style="{ width: data.options.width }"
@@ -28,7 +28,7 @@
       <el-input
         type="textarea"
         :rows="5"
-        v-model="data.defaultValue"
+        v-model="data.options.defaultValue"
         :autosize="data.options.autosize"
         :disabled="data.options.disabled"
         :placeholder="data.options.placeholder"
@@ -39,7 +39,7 @@
     </template>
     <template v-if="data.type == 'radio'">
       <el-radio-group
-        v-model="data.defaultValue"
+        v-model="data.options.defaultValue"
         :style="{ width: data.options.width }"
         :disabled="data.options.disabled"
       >
@@ -55,7 +55,7 @@
     </template>
     <template v-if="data.type == 'checkbox'">
       <el-checkbox-group
-        v-model="data.defaultValue"
+        v-model="data.options.defaultValue"
         :style="{ width: data.options.width }"
         :disabled="data.options.disabled"
       >
@@ -71,7 +71,7 @@
     </template>
     <template v-if="data.type == 'select'">
       <el-select
-        v-model="data.defaultValue"
+        v-model="data.options.defaultValue"
         :disabled="data.options.disabled"
         :multiple="data.options.multiple"
         :clearable="data.options.clearable"
@@ -89,7 +89,7 @@
     </template>
     <template v-if="data.type == 'cascader'">
       <el-cascader
-        v-model="data.defaultValue"
+        v-model="data.options.defaultValue"
         :disabled="data.options.disabled"
         :clearable="data.options.clearable"
         :placeholder="data.options.placeholder"
@@ -100,14 +100,14 @@
       </el-cascader>
     </template>
     <template v-if="data.type == 'switch'">
-      <el-switch v-model="data.defaultValue" :disabled="data.options.disabled"> </el-switch>
+      <el-switch v-model="data.options.defaultValue" :disabled="data.options.disabled"> </el-switch>
     </template>
     <template v-if="data.type == 'text'">
-      <span>{{ data.defaultValue }}</span>
+      <span>{{ data.options.defaultValue }}</span>
     </template>
     <template v-if="data.type == 'slider'">
       <el-slider
-        v-model="data.defaultValue"
+        v-model="data.options.defaultValue"
         :min="data.options.min"
         :max="data.options.max"
         :disabled="data.options.disabled"
@@ -119,7 +119,7 @@
     </template>
     <template v-if="data.type == 'time'">
       <el-time-picker
-        v-model="data.defaultValue"
+        v-model="data.options.defaultValue"
         :is-range="data.options.isRange"
         :placeholder="data.options.placeholder"
         :start-placeholder="data.options.startPlaceholder"
@@ -136,7 +136,7 @@
     </template>
     <template v-if="data.type == 'date'">
       <el-date-picker
-        v-model="data.defaultValue"
+        v-model="data.options.defaultValue"
         :type="data.options.type"
         :placeholder="data.options.placeholder"
         :start-placeholder="data.options.startPlaceholder"
@@ -163,6 +163,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
+.is_req {
+  .el-form-item__label::before {
+    content: '*';
+    color: #f56c6c;
+    margin-right: 4px;
+  }
+}
 </style>

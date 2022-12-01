@@ -29,7 +29,7 @@ const activePage = {
           ]
         }
       ],
-      config: { labelWidth: 80, labelPosition: 'right', size: 'small', customClass: '' }
+      config: { labelWidth: 100, labelPosition: 'right', size: 'small', customClass: '' }
     }
   },
   mutations: {

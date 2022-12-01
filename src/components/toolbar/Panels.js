@@ -68,9 +68,9 @@ const Panels = {
         }
       },
       {
+        title: '多选框组',
         type: 'banner',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/banner-icon.png',
-        title: '轮播图',
         content: [],
         //外观
         facade: {
