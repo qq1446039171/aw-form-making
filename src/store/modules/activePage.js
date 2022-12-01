@@ -2,33 +2,7 @@ const activePage = {
   state: {
     activeComponent: {}, // 当前选中的模板数据
     componentsData: {
-      list: [
-        {
-          type: 'input',
-          options: {
-            width: '100%',
-            defaultValue: '',
-            required: true,
-            dataType: 'string',
-            placeholder: '',
-            disabled: false,
-            maxlength: -1,
-            showWordLimit: false,
-          },
-          name: '单行文本',
-          model: '',
-          rules: [
-            {
-              type: 'string',
-              message: '单行文本格式不正确'
-            },
-            {
-              required: true,
-              message: '单行文本必须填写'
-            }
-          ]
-        }
-      ],
+      list: [],
       config: { labelWidth: 100, labelPosition: 'right', size: 'small', customClass: '' }
     }
   },

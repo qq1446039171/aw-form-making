@@ -24,11 +24,11 @@ const Panels = {
             {
               type: 'string',
               message: '单行文本格式不正确'
-            },
-            {
-              required: true,
-              message: '单行文本必须填写'
             }
+            // {
+            //   required: true,
+            //   message: '单行文本必须填写'
+            // }
           ]
         }
       },
