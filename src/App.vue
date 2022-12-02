@@ -44,7 +44,6 @@ export default {
   },
   computed: {
     ...mapGetters(['componentsData']),
-    ...mapMutations(['clearComponentsData']),
     scrollHeight() {
       return {
         height: parseInt(this.fullHeight) + 'px'
@@ -52,6 +51,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['clearComponentsData']),
     clear() {
       this.clearComponentsData()
     },
