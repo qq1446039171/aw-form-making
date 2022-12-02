@@ -7,7 +7,7 @@
     <!-- 中间部分 -->
     <div class="content-area" :style="scrollHeight">
       <div class="layout-header">
-        <el-button type="primary" size="small" icon="el-icon-delete">清空</el-button>
+        <el-button type="primary" size="small" icon="el-icon-delete" @click="clear">清空</el-button>
         <el-button type="primary" size="small" icon="el-icon-view" @click="showDialogPreview">预览</el-button>
         <el-button type="primary" size="small" icon="el-icon-tickets" @click="showDialogJson">生成JSON</el-button>
       </div>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import Tool from '@/components/toolbar/index'
 import Content from '@/components/panel/index'
 import Edit from '@/components/edit/index'
@@ -44,6 +44,7 @@ export default {
   },
   computed: {
     ...mapGetters(['componentsData']),
+    ...mapMutations(['clearComponentsData']),
     scrollHeight() {
       return {
         height: parseInt(this.fullHeight) + 'px'
@@ -51,6 +52,9 @@ export default {
     }
   },
   methods: {
+    clear() {
+      this.clearComponentsData()
+    },
     showDialogJson() {
       this.$refs.refDialogJson.show(this.componentsData)
     },

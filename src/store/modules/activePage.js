@@ -12,7 +12,10 @@ const activePage = {
     },
     setComponentsData: (state, newData) => {
       state.componentsData.list.push(newData)
-    }
+    },
+    clearComponentsData:(state) => {
+      state.componentsData.list = []
+    },
   },
   actions: {
     changeComponentsData(context, data) {
