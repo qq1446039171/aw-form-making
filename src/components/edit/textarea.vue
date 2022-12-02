@@ -20,10 +20,6 @@
           <el-form-item label="占位内容">
             <el-input v-model="information.options.placeholder" placeholder="" size="small" />
           </el-form-item>
-          <el-form-item label="是否可清空">
-            <el-switch v-model="information.options.clearable" active-color="#13ce66" inactive-color="#ff4949">
-            </el-switch>
-          </el-form-item>
           <el-form-item label="是否禁用">
             <el-switch v-model="information.options.disabled" active-color="#13ce66" inactive-color="#ff4949">
             </el-switch>
