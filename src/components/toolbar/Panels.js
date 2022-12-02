@@ -8,6 +8,8 @@ const Panels = {
         type: 'searchInput',
         data: {
           type: 'input',
+          name: '单行文本',
+          model: '',
           options: {
             width: '100%',
             defaultValue: '',
@@ -18,8 +20,7 @@ const Panels = {
             maxlength: -1,
             showWordLimit: false
           },
-          name: '单行文本',
-          model: '',
+
           rules: []
         }
       },
@@ -28,11 +29,24 @@ const Panels = {
         type: 'notice',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/notice-icon.png',
         data: {
-          title: '',
-          icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/notice-img.png',
-          titleColor: '#f58e20',
-          speed: 80,
-          backgroundColor: '#fff5e1'
+          type: 'textarea',
+          name: '多行文本',
+          model: '',
+          options: {
+            width: '100%',
+            defaultValue: '',
+            required: false,
+            placeholder: '',
+            disabled: false,
+            maxlength: -1,
+            showWordLimit: false,
+            autosize: {
+              minRows: 2,
+              maxRows: 4
+            }
+          },
+
+          rules: []
         }
       },
       {

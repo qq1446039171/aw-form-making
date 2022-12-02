@@ -176,7 +176,7 @@ export default {
     z-index: 100;
     border: 2px solid #623ceb;
     // #409ef
-    box-shadow: 0 0 20px  0 rgba(98, 60, 235, 0.2);
+    box-shadow: 0 0 20px 0 rgba(98, 60, 235, 0.2);
 
     .widget-handle {
       position: absolute;
