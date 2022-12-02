@@ -11,7 +11,6 @@
       @change="pageChange"
       :group="{ name: 'pageEdit', pull: true, put: true }"
       animation="300"
-      @add="handleWidgetAdd"
     >
       <transition-group style="min-height: 200px; display: block">
         <div
@@ -94,9 +93,6 @@ export default {
       }
       let componentsItem = JSON.stringify(item)
       this.$store.dispatch('changeComponentsData', JSON.parse(componentsItem))
-    },
-    handleWidgetAdd(evt) {
-      console.log(evt)
     },
     pageChange(e) {
       if (e.moved) {

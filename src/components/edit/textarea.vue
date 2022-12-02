@@ -20,6 +20,12 @@
           <el-form-item label="占位内容">
             <el-input v-model="information.options.placeholder" placeholder="" size="small" />
           </el-form-item>
+          <el-form-item label="最小行数">
+            <el-input v-model.number="information.options.autosize.minRows" type="number" placeholder="" size="small" />
+          </el-form-item>
+          <el-form-item label="最大行数">
+            <el-input v-model.number="information.options.autosize.maxRows" type="number" placeholder="" size="small" />
+          </el-form-item>
           <el-form-item label="是否禁用">
             <el-switch v-model="information.options.disabled" active-color="#13ce66" inactive-color="#ff4949">
             </el-switch>
@@ -58,7 +64,7 @@ export default {
         this.validateRequired(newVal)
       },
       immediate: true
-    },
+    }
   },
   props: ['information'],
   computed: {
