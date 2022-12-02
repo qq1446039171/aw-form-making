@@ -27,13 +27,13 @@
   .layout-header {
     width: 100%;
     height: 45px;
-
     font-size: 18px;
-    border-bottom: 2px solid #e4e7ed;
     padding: 0 10px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    border-bottom: 2px solid #EBEEF5;
+    box-shadow: 0 14px 20px 0 rgba(0, 0, 0, 0.06);
   }
   .layout {
     flex: 1;
@@ -42,7 +42,7 @@
     margin-bottom: 20px !important;
     background: #fff;
     border: 1px dashed #999;
-    box-shadow: 0 0 20px 0 rgb(0 0 0 / 5%);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
   }
 }
 .right-area {
@@ -50,4 +50,3 @@
   background: #fff;
   overflow-x: hidden;
 }
-
