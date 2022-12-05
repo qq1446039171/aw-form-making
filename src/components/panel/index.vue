@@ -28,6 +28,7 @@
               :justify="item.options.justify"
               :align="item.options.align"
               @click="checkedComponent(item, index)"
+              class="grid-draggable"
             >
               <el-col v-for="(col, colIndex) in item.columns" :key="colIndex" :span="col.span">
                 <draggable
@@ -35,7 +36,7 @@
                   :list="col.list"
                   @change="gridPageChange"
                   :group="{ name: 'pageEdit', pull: true, put: true }"
-                  animation="300"
+                  animation="200"
                   ghostClass="selectClass"
                   chosenClass="selectClass"
                 >
@@ -165,8 +166,12 @@ export default {
 .panel :before {
   box-sizing: border-box;
 }
+.grid-draggable {
+  background: rgba(98, 60, 235, 0.05);
+}
 // 在移入中间容器后 这些样式应该被隐藏 跟 显示
 .panel {
+  position: relative;
   :deep(.left-widget) {
     .widget-icon {
       display: none;
