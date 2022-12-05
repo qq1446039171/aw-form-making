@@ -16,9 +16,10 @@
               <el-input
                 placeholder="请输入数字"
                 size="mini"
-                style="width: 100px"
+                style="width: 120px"
                 type="number"
                 v-model.number="item.span"
+                :max="24"
               ></el-input>
 
               <el-button
@@ -37,9 +38,14 @@
           </div>
         </Item>
         <Item title="配置设置">
-          <el-form-item label="是否必填">
-            <el-switch v-model="information.options.required" active-color="#13ce66" inactive-color="#ff4949">
-            </el-switch>
+          <el-form-item label="栅格间隔">
+            <el-input
+              placeholder="请输入数字"
+              size="mini"
+              style="width: 120px"
+              type="number"
+              v-model.number="information.options.gutter"
+            ></el-input>
           </el-form-item>
         </Item>
       </el-row>
@@ -105,5 +111,10 @@ li {
     right: 0;
     border: 1px dashed #66b1ff;
   }
+}
+
+:deep(.el-form-item__label) {
+  color: #8c8c8c;
+  opacity: 0.65;
 }
 </style>
