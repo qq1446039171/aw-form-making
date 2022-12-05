@@ -9,6 +9,7 @@
             ghostClass="selectClass"
             chosenClass="selectClass"
             :group="{ name: 'options' }"
+            handle=".drag-item"
           >
             <li v-for="(item, index) in information.columns" :key="index">
               <img class="drag-item" src="http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/separate-icon.png" />

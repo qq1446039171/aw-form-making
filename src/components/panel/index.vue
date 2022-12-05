@@ -151,8 +151,8 @@ export default {
       }
     },
     gridPageChange(e) {
+      console.log(`移入Grid中的数据`)
       console.log(e)
-      debugger
     }
   }
 }

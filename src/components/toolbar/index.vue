@@ -50,7 +50,6 @@ export default {
   },
   methods: {
     cloneItem(item) {
-      console.log(item);
       return JSON.parse(JSON.stringify(item.data))
     }
   }
