@@ -19,11 +19,50 @@
           @click="checkedComponent(item, index)"
           class="widget"
         >
-          <Form
-            ref="Form"
-            :data="item"
-            :label-width="item.labelWidth ? item.labelWidth + 'px' : componentsData.config.labelWidth + 'px'"
-          ></Form>
+          <!--  网格布局的时候 -->
+          <template v-if="item.type == 'grid'">
+            <el-row
+              :key="item.key"
+              type="flex"
+              :gutter="item.options.gutter ? item.options.gutter : 0"
+              :justify="item.options.justify"
+              :align="item.options.align"
+              @click="checkedComponent(item, index)"
+            >
+              <el-col v-for="(col, colIndex) in item.columns" :key="colIndex" :span="col.span">
+                <draggable
+                  class="panel"
+                  :list="col.list"
+                  @change="gridPageChange"
+                  :group="{ name: 'pageEdit', pull: true, put: true }"
+                  animation="300"
+                  ghostClass="selectClass"
+                  chosenClass="selectClass"
+                >
+                  <transition-group style="min-height: 50px; display: block">
+                    <template v-for="(colItem, index) in col.list">
+                      <Form
+                        ref="Form"
+                        :key="index"
+                        :data="colItem"
+                        :label-width="
+                          colItem.labelWidth ? colItem.labelWidth + 'px' : componentsData.config.labelWidth + 'px'
+                        "
+                      ></Form>
+                    </template>
+                  </transition-group>
+                </draggable>
+              </el-col>
+            </el-row>
+          </template>
+
+          <template v-else>
+            <Form
+              ref="Form"
+              :data="item"
+              :label-width="item.labelWidth ? item.labelWidth + 'px' : componentsData.config.labelWidth + 'px'"
+            ></Form>
+          </template>
           <!--  边框与操作按钮 -->
           <div class="widget-mask" v-if="index === activeIndex">
             <div class="widget-handle">
@@ -110,18 +149,25 @@ export default {
         this.$set(e.added.element, 'model', e.added.element.type + '_' + key)
         this.setActiveComponent(e.added.element)
       }
+    },
+    gridPageChange(e) {
+      console.log(e)
+      debugger
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.selectClass {
+  border: 1px dashed #66b1ff !important;
+}
 .panel :before {
   box-sizing: border-box;
 }
 // 在移入中间容器后 这些样式应该被隐藏 跟 显示
 .panel {
-  ::v-deep .left-widget {
+  :deep(.left-widget) {
     .widget-icon {
       display: none;
     }

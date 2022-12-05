@@ -6,3 +6,5 @@ let editComponent = components.keys().map((i) => {
 const editComponentPanelMap = new Map(editComponent)
 
 export default editComponentPanelMap
+
+// ['input',()=>import('@/xxxx')]

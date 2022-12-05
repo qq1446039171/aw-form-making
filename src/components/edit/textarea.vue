@@ -128,7 +128,7 @@ export default {
   font-size: 14px;
 }
 
-::v-deep .el-form-item__label {
+:deep(.el-form-item__label) {
   color: #8c8c8c;
   opacity: 0.65;
 }
