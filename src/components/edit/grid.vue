@@ -11,9 +11,8 @@
             :group="{ name: 'options' }"
           >
             <li v-for="(item, index) in information.columns" :key="index">
-              <!-- http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/separate-icon.png -->
               <img class="drag-item" src="http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/separate-icon.png" />
-              <!-- <i class="drag-item" style="font-size: 16px;margin: 0 5px;cursor: move;"><i class="iconfont icon-icon_bars"></i></i> -->
+
               <el-input
                 placeholder="请输入数字"
                 size="mini"
@@ -33,7 +32,7 @@
               ></el-button>
             </li>
           </draggable>
-          <div style="margin-left: 11px">
+          <div style="margin-left: 5px">
             <el-button type="text" @click="handleAddColumn">添加列</el-button>
           </div>
         </Item>
@@ -84,7 +83,7 @@ export default {
 .drag-item {
   width: 24px;
   height: 24px;
-  margin: 0 5px;
+  margin-right: 5px;
   cursor: move;
 }
 li {
