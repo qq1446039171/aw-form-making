@@ -1,6 +1,6 @@
 <template>
-  <control title="Input 输入框">
-    <el-form ref="formValidate" label-width="90px" label-position="left" size="mini">
+  <control title="Radio 单选框">
+    <el-form ref="formValidate" label-width="80px" label-position="left" size="mini">
       <el-row>
         <Item title="关键字段">
           <el-form-item label="字段标识">
@@ -17,37 +17,53 @@
           <el-form-item label="宽度">
             <el-input v-model="information.options.width" placeholder="" size="small" />
           </el-form-item>
-          <el-form-item label="占位内容">
-            <el-input v-model="information.options.placeholder" placeholder="" size="small" />
-          </el-form-item>
-          <el-form-item label="是否可清空">
-            <el-switch v-model="information.options.clearable" active-color="#13ce66" inactive-color="#ff4949">
-            </el-switch>
-          </el-form-item>
           <el-form-item label="是否禁用">
             <el-switch v-model="information.options.disabled" active-color="#13ce66" inactive-color="#ff4949">
             </el-switch>
           </el-form-item>
-          <el-form-item label="是否显示输入字数统计">
-            <el-switch v-model="information.options.showWordLimit" active-color="#13ce66" inactive-color="#ff4949">
-            </el-switch>
+        </Item>
+        <Item title="选项内容">
+          <el-form-item label="数据来源">
+            <el-radio-group v-model="information.options.remote">
+              <el-radio :label="false" :value="false">静态数据</el-radio>
+              <el-radio :label="true" :value="true">远端数据</el-radio>
+            </el-radio-group>
           </el-form-item>
-          <el-form-item label="最大输入长度">
-            <el-input v-model="information.options.maxlength" type="number" placeholder="" size="small" />
+          <el-form-item label="数据内容">
+            <draggable
+              tag="ul"
+              :list="information.options.options"
+              ghostClass="selectClass"
+              chosenClass="selectClass"
+              :group="{ name: 'options' }"
+              handle=".drag-item"
+            >
+              <li v-for="(item, index) in information.options.options" :key="index" class="drag-items">
+                <img class="drag-item" src="http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/separate-icon.png" />
+
+                <el-input placeholder="请输入Label" size="mini" style="width: 120px" v-model="item.label"></el-input>
+                <el-input placeholder="请输入Value" size="mini" style="width: 80px;margin-left: 10px;" v-model="item.value"></el-input>
+
+                <el-button
+                  @click="handleOptionsRemove(index)"
+                  circle
+                  plain
+                  type="danger"
+                  size="mini"
+                  icon="el-icon-minus"
+                  style="padding: 4px; margin-left: 8px"
+                ></el-button>
+              </li>
+            </draggable>
+            <div style="margin-left: 5px">
+            <el-button type="text" @click="handleAddColumn">添加列</el-button>
+          </div>
           </el-form-item>
         </Item>
         <Item title="效验规则">
           <el-form-item label="是否必填">
             <el-switch v-model="information.options.required" active-color="#13ce66" inactive-color="#ff4949">
             </el-switch>
-          </el-form-item>
-          <el-form-item label="输入类型">
-            <el-select v-model="information.options.dataType" placeholder="请选择">
-              <el-option key="string" label="字符串" value="string"> </el-option>
-              <el-option key="number" label="数字" value="number"> </el-option>
-              <el-option key="boolean" label="布尔型" value="boolean"> </el-option>
-              <el-option key="integer" label="整数" value="integer"> </el-option>
-            </el-select>
           </el-form-item>
         </Item>
       </el-row>
@@ -57,23 +73,19 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import Draggable from 'vuedraggable'
 import control from '@/components/control-panel.vue'
 import Item from './components/Item.vue'
 export default {
   components: {
     control,
-    Item
+    Item,
+    Draggable
   },
   watch: {
     'information.options.required': {
       handler(newVal, oldVal) {
         this.validateRequired(newVal)
-      },
-      immediate: true
-    },
-    'information.options.dataType': {
-      handler(newVal, oldVal) {
-        this.validateDataType(newVal)
       },
       immediate: true
     }
@@ -87,9 +99,6 @@ export default {
       validator: {
         type: null,
         required: null
-        // pattern: null,
-        // range: null,
-        // length: null
       }
     }
   },
@@ -107,14 +116,6 @@ export default {
         this.generateRule()
       })
     },
-    validateDataType(val) {
-      if (val) {
-        this.validator.type = { type: val, message: this.information.name + '格式不正确' }
-      } else {
-        this.validator.type = null
-      }
-      this.generateRule()
-    },
     generateRule() {
       this.information.rules = []
       Object.keys(this.validator).forEach((key) => {
@@ -124,22 +125,33 @@ export default {
           console.log(this.componentsData.list)
         }
       })
-    }
+    },
+    handleOptionsRemove(index) {
+      this.information.options.options.splice(index, 1)
+    },
+    handleAddColumn() {
+      this.information.options.options.push({
+        value: '新选项',
+        label: '新选项'
+      })
+    },
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.pxTxt {
-  float: right;
-  width: 20%;
-  margin-right: -8px;
-  // 文字超出省略显示
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
+.drag-items {
+  display: flex;
+  align-items: center;
+  padding: 5px;
 
+  .drag-item {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    cursor: move;
+  }
+}
 :deep(.el-form-item__label) {
   color: #8c8c8c;
   opacity: 0.65;

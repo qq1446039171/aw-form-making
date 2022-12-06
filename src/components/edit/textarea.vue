@@ -119,14 +119,6 @@ export default {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.control-item-title {
-  line-height: 35px;
-  margin-bottom: 5px;
-  font-weight: 400;
-  color: #333;
-  opacity: 0.85;
-  font-size: 14px;
-}
 
 :deep(.el-form-item__label) {
   color: #8c8c8c;

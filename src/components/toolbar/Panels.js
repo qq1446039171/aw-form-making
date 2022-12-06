@@ -49,28 +49,31 @@ const Panels = {
           rules: []
         }
       },
-
       {
         title: '单选框组',
         type: 'title',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/title-icon.png',
-        content: {
-          style: 1,
-          title: '主标题',
-          subtitle: '子标题',
-          is_more: true,
-          moretitle: '查看更多',
-          morelink: {}
-        },
-        //外观
-        facade: {
-          title_color: '#333333',
-          title_font_size: 14,
-          subtitle_color: '#999999',
-          subtitle_font_size: 12,
-          more_color: '#999999',
-          margin: 20,
-          backgroundColor: '#F5F5F5'
+        data: {
+          type: 'radio',
+          name: '单选框组',
+          model: '',
+          options: {
+            width: '100%',
+            defaultValue: '',
+            required: false,
+            disabled: false,
+            inline: true,
+
+            remote: false,
+            options: [
+              // 未走远程请求的下拉数据
+              { value: '1', label: 'Option1' },
+              { value: '2', label: 'Option2' },
+              { value: '3', label: 'Option3' }
+            ]
+          },
+
+          rules: []
         }
       },
       {
@@ -187,7 +190,7 @@ const Panels = {
       }
     ]
   },
-  advanced: {
+  layout: {
     title: '布局字段',
     children: [
       {

@@ -3,7 +3,7 @@
     <control title="按钮组">
       <div style="width: 270px">
         <!-- 左侧功能栏-开始 -->
-        <el-collapse :value="['basics', 'advanced', 'sales', 'other', 'marketing']">
+        <el-collapse :value="['basics', 'layout', 'sales', 'other', 'marketing']">
           <el-collapse-item :name="index" v-for="(mounted, index) in Panels" :key="index">
             <template slot="title">
               <i class="le-icon le-icon-arrow"></i>
