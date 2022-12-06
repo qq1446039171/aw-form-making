@@ -10,6 +10,7 @@
         <el-button type="primary" size="small" icon="el-icon-delete" @click="clear">清空</el-button>
         <el-button type="primary" size="small" icon="el-icon-view" @click="showDialogPreview">预览</el-button>
         <el-button type="primary" size="small" icon="el-icon-tickets" @click="showDialogJson">生成JSON</el-button>
+        <el-button type="primary" size="small" icon="el-icon-tickets" @click="showDialogCode">生成代码</el-button>
       </div>
       <!-- 循环显示页面面板 -->
       <div class="layout">
@@ -23,6 +24,7 @@
 
     <DialogJson ref="refDialogJson" />
     <DialogPreview ref="refDialogPreview" />
+    <DialogCode ref="refDialogCode" />
   </div>
 </template>
 
@@ -33,9 +35,11 @@ import Content from '@/components/panel/index'
 import Edit from '@/components/edit/index'
 import DialogJson from '@/components/Dialog/dialog-json.vue'
 import DialogPreview from '@/components/Dialog/dialog-preview.vue'
+import DialogCode from '@/components/Dialog/dialog-code.vue'
+import generateCode from '@/utils/generateCode'
 export default {
   name: 'App',
-  components: { Tool, Content, Edit, DialogJson, DialogPreview },
+  components: { Tool, Content, Edit, DialogJson, DialogPreview, DialogCode },
 
   data() {
     return {
@@ -60,6 +64,10 @@ export default {
     },
     showDialogPreview() {
       this.$refs.refDialogPreview.show(this.componentsData)
+    },
+    showDialogCode() {
+      let data =  generateCode(JSON.stringify(this.componentsData), 'vue')
+      this.$refs.refDialogCode.show(data)
     }
   }
 }
