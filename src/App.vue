@@ -66,7 +66,8 @@ export default {
       this.$refs.refDialogPreview.show(this.componentsData)
     },
     showDialogCode() {
-      let data =  generateCode(JSON.stringify(this.componentsData), 'vue')
+      let data = generateCode(JSON.stringify(this.componentsData))
+      console.log(data)
       this.$refs.refDialogCode.show(data)
     }
   }

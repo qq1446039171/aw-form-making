@@ -1,8 +1,11 @@
 <template>
-  <el-dialog title="代码" :visible.sync="visible" width="900px" :close-on-click-modal="false">
+  <el-dialog title="代码" :visible.sync="visible" width="900px" :close-on-click-modal="false" center>
     <div class="json">
-      <json-viewer :value="data" :expand-depth="10" copyable boxed sort></json-viewer>
+      <pre>{{ data }}</pre>
     </div>
+    <span slot="footer" class="dialog-footer">
+      <el-button type="primary" v-copy="data">复 制 代 码</el-button>
+    </span>
   </el-dialog>
 </template>
 
@@ -20,7 +23,7 @@ export default {
       this.visible = true
       this.data = data
     },
-    save() {}
+    copy() {}
   }
 }
 </script>
