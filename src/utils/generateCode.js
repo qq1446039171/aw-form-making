@@ -1,11 +1,26 @@
 function findRemoteFunc(list, funcList, blankList) {
   for (let i = 0; i < list.length; i++) {
-    if (list[i].options.remote && list[i].options.remoteFunc) {
-      funcList.push({
-        func: list[i].options.remoteFunc,
-        label: list[i].label,
-        model: list[i].model
+    if (list[i].type == 'grid') {
+      list[i].columns.forEach((item) => {
+        findRemoteFunc(item.list, funcList, blankList)
       })
+    } else {
+      if (list[i].type == 'blank') {
+        if (list[i].model) {
+          blankList.push({
+            name: list[i].model,
+            label: list[i].name
+          })
+        }
+      } else {
+        if (list[i].options.remote && list[i].options.remoteFunc) {
+          funcList.push({
+            func: list[i].options.remoteFunc,
+            label: list[i].label,
+            model: list[i].model
+          })
+        }
+      }
     }
   }
 }
@@ -13,7 +28,7 @@ function findRemoteFunc(list, funcList, blankList) {
 export default function generateCode(data) {
   const funcList = []
   const blankList = []
-  findRemoteFunc(JSON.parse(data).list, funcList)
+  findRemoteFunc(JSON.parse(data).list, funcList, blankList)
   let funcTemplate = ''
   let blankTemplate = ''
   return `<template>
@@ -39,10 +54,9 @@ export default function generateCode(data) {
     methods: {
       save () {
         this.$refs.generateForm.getData().then(data => {
-          // data check success
-          // data - form data
+         
         }).catch(e => {
-          // data check failed
+          
         })
       }
     }
