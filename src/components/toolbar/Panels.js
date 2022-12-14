@@ -97,46 +97,32 @@ const Panels = {
 
           rules: []
         }
-      
       },
       {
-        type: 'navigation',
+        title: '下拉选择框',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/navigation-icon.png',
-        title: '图文导航',
-        content: {
-          style: 1, //风格
-          data: [
-            {
-              url: '',
-              title: '导航一',
-              link: {}
-            },
-            {
-              url: '',
-              title: '导航二',
-              link: {}
-            },
-            {
-              url: '',
-              title: '导航三',
-              link: {}
-            },
-            {
-              url: '',
-              title: '导航四',
-              link: {}
-            }
-          ]
-        },
-        //外观
-        facade: {
-          nav_style: 1, //展示样式 1 单行 2多行
-          nav_line: 2,
-          nav_line_mun: 4,
-          active_color: '#f5212d',
-          indicator_style: 1, //指示器样式
-          backgroundColor: '#FFFFFF',
-          text_color: '#333333'
+        data: {
+          type: 'select',
+          name: '下拉选择框',
+          model: '',
+          options: {
+            width: '100%',
+            defaultValue: '',
+            placeholder: '',
+            required: false,
+            disabled: false,
+            multiple: false,
+            filterable: false,
+            remote: false,
+            options: [
+              // 未走远程请求的下拉数据
+              { value: '1', label: 'Option1' },
+              { value: '2', label: 'Option2' },
+              { value: '3', label: 'Option3' }
+            ]
+          },
+
+          rules: []
         }
       },
       {

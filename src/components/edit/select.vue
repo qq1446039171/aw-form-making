@@ -1,6 +1,6 @@
 <template>
   <control :title="$toUpperCase(information.type) + ' ' + information.name">
-    <el-form ref="formValidate" label-width="80px" label-position="left" size="mini">
+    <el-form ref="formValidate" label-width="90px" label-position="left" size="mini">
       <el-row>
         <Item title="关键字段">
           <el-form-item label="字段标识">
@@ -12,26 +12,28 @@
         </Item>
         <Item title="配置设置">
           <el-form-item label="默认值">
-            <el-select
-              v-model="information.options.defaultValue"
-              multiple
-              placeholder="请选择"
-              size="small"
-              style="width: 306px"
-            >
-              <el-option
-                v-for="item in information.options.remote
-                  ? information.options.remoteOptions
-                  : information.options.options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              >
-              </el-option>
-            </el-select>
+            <!-- information.options.multiple -->
+            <el-input v-model="information.options.defaultValue" placeholder="" size="small" />
+
+
           </el-form-item>
           <el-form-item label="宽度">
             <el-input v-model="information.options.width" placeholder="" size="small" />
+          </el-form-item>
+          <el-form-item label="占位内容">
+            <el-input v-model="information.options.placeholder" placeholder="" size="small" />
+          </el-form-item>
+          <el-form-item label="是否可清空">
+            <el-switch v-model="information.options.clearable" active-color="#13ce66" inactive-color="#ff4949">
+            </el-switch>
+          </el-form-item>
+          <el-form-item label="是否可多选">
+            <el-switch v-model="information.options.multiple" active-color="#13ce66" inactive-color="#ff4949">
+            </el-switch>
+          </el-form-item>
+          <el-form-item label="是否可搜索">
+            <el-switch v-model="information.options.filterable" active-color="#13ce66" inactive-color="#ff4949">
+            </el-switch>
           </el-form-item>
           <el-form-item label="是否禁用">
             <el-switch v-model="information.options.disabled" active-color="#13ce66" inactive-color="#ff4949">
