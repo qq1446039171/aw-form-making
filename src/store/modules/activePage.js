@@ -4,7 +4,8 @@ const activePage = {
     componentsData: {
       list: [],
       config: { labelWidth: 100, labelPosition: 'right', size: 'small', customClass: '' }
-    }
+    },
+    
   },
   mutations: {
     setActiveComponent: (state, newCom) => {

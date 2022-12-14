@@ -148,6 +148,10 @@ export default {
         e.added.element.index = e.added.newIndex
         // 绑定键值
         this.$set(e.added.element, 'model', e.added.element.type + '_' + key)
+        // //  添加一个远程的方法
+        // if (e.added.element.type === 'radio') {
+        //   this.$set(e.added.element.options, 'remoteFunc', 'func_' + key)
+        // }
         this.setActiveComponent(e.added.element)
       }
     },

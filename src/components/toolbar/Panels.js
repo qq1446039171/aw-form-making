@@ -57,14 +57,15 @@ const Panels = {
           type: 'radio',
           name: '单选框组',
           model: '',
+
           options: {
             width: '100%',
             defaultValue: '',
             required: false,
             disabled: false,
             inline: true,
-
             remote: false,
+            // remoteFunc: '',
             options: [
               // 未走远程请求的下拉数据
               { value: '1', label: 'Option1' },

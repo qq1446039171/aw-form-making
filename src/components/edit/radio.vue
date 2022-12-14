@@ -29,7 +29,18 @@
               <el-radio :label="true" :value="true">远端数据</el-radio>
             </el-radio-group>
           </el-form-item>
-          <el-form-item label="数据内容">
+          <template v-if="information.options.remote">
+            <el-form-item label="远端方法">
+              <el-input v-model="information.options.remoteFunc" placeholder="" size="small" />
+            </el-form-item>
+            <el-form-item label="值">
+              <el-input v-model="information.options.props.value" placeholder="" size="small" />
+            </el-form-item>
+            <el-form-item label="标签">
+              <el-input v-model="information.options.props.label" placeholder="" size="small" />
+            </el-form-item>
+          </template>
+          <el-form-item label="数据内容" v-else>
             <draggable
               tag="ul"
               :list="information.options.options"
@@ -42,7 +53,12 @@
                 <img class="drag-item" src="http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/separate-icon.png" />
 
                 <el-input placeholder="请输入Label" size="mini" style="width: 120px" v-model="item.label"></el-input>
-                <el-input placeholder="请输入Value" size="mini" style="width: 80px;margin-left: 10px;" v-model="item.value"></el-input>
+                <el-input
+                  placeholder="请输入Value"
+                  size="mini"
+                  style="width: 80px; margin-left: 10px"
+                  v-model="item.value"
+                ></el-input>
 
                 <el-button
                   @click="handleOptionsRemove(index)"
@@ -56,8 +72,8 @@
               </li>
             </draggable>
             <div style="margin-left: 5px">
-            <el-button type="text" @click="handleAddColumn">添加列</el-button>
-          </div>
+              <el-button type="text" @click="handleAddColumn">添加列</el-button>
+            </div>
           </el-form-item>
         </Item>
         <Item title="效验规则">
@@ -88,6 +104,12 @@ export default {
         this.validateRequired(newVal)
       },
       immediate: true
+    },
+    'information.options.remote': {
+      handler(newVal, oldVal) {
+        this.validateRemote(newVal)
+      },
+      immediate: true
     }
   },
   props: ['information'],
@@ -116,6 +138,17 @@ export default {
         this.generateRule()
       })
     },
+    validateRemote(val) {
+      if (val) {
+        const key = Date.parse(new Date()) + '_' + Math.ceil(Math.random() * 99999)
+        this.$set(this.information.options, 'remoteFunc', 'func_' + key)
+        this.$set(this.information.options, 'remoteOptions', [])
+        this.$set(this.information.options, 'props', { value: 'value', label: 'label' })
+      } else {
+        delete this.information.options.remoteFunc
+        //  = null
+      }
+    },
     generateRule() {
       this.information.rules = []
       Object.keys(this.validator).forEach((key) => {
@@ -134,7 +167,7 @@ export default {
         value: '新选项',
         label: '新选项'
       })
-    },
+    }
   }
 }
 </script>
