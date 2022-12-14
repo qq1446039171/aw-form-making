@@ -14,8 +14,6 @@ function findRemoteFunc(list, funcList, blankList) {
         }
       } else {
         if (list[i].options.remote && list[i].options.remoteFunc) {
-          console.log(list[i].options)
-          debugger
           funcList.push({
             func: list[i].options.remoteFunc,
             label: list[i].options.props.label,
@@ -35,13 +33,17 @@ export default function generateCode(data) {
   let funcTemplate = ''
   let blankTemplate = ''
   for (let i = 0; i < funcList.length; i++) {
-    console.log(funcList[i])
-    debugger
     funcTemplate += `
             ${funcList[i].func} (resolve) {
               // label: ${funcList[i].label} || value: ${funcList[i].value}
               // Call callback function once get the data from remote server
               // resolve(data)
+              const options = [
+                { label: 'remote1',value: '1' },
+                { label: 'remote2',value: '2' },
+                { label: 'remote3',value: '3' }
+              ]
+              resolve(options)
             },
     `
   }

@@ -67,7 +67,6 @@ export default {
     },
     showDialogCode() {
       let data = generateCode(JSON.stringify(this.componentsData))
-      console.log(data)
       this.$refs.refDialogCode.show(data)
     }
   }
