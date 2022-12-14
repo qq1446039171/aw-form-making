@@ -5,7 +5,6 @@ const Panels = {
       {
         title: '单行文本',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/search-icon.png',
-        type: 'searchInput',
         data: {
           type: 'input',
           name: '单行文本',
@@ -26,7 +25,6 @@ const Panels = {
       },
       {
         title: '多行文本',
-        type: 'notice',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/notice-icon.png',
         data: {
           type: 'textarea',
@@ -51,13 +49,11 @@ const Panels = {
       },
       {
         title: '单选框组',
-        type: 'title',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/title-icon.png',
         data: {
           type: 'radio',
           name: '单选框组',
           model: '',
-
           options: {
             width: '100%',
             defaultValue: '',
@@ -73,22 +69,35 @@ const Panels = {
               { value: '3', label: 'Option3' }
             ]
           },
-
           rules: []
         }
       },
       {
         title: '多选框组',
-        type: 'banner',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/banner-icon.png',
-        content: [],
-        //外观
-        facade: {
-          chamfer_style: 1, //倒角样式
-          indicator_style: 1, //指示器样式
-          indicator_align: 'left', //指示器位置
-          indicator_color: '#f5212d' //指示器颜色
+        data: {
+          type: 'checkbox',
+          name: '多选框组',
+          model: '',
+          options: {
+            width: '100%',
+            defaultValue: [],
+            required: false,
+            disabled: false,
+            inline: true,
+            remote: false,
+            // remoteFunc: '',
+            options: [
+              // 未走远程请求的下拉数据
+              { value: '1', label: 'Option1' },
+              { value: '2', label: 'Option2' },
+              { value: '3', label: 'Option3' }
+            ]
+          },
+
+          rules: []
         }
+      
       },
       {
         type: 'navigation',

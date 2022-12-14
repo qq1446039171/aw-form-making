@@ -8,6 +8,8 @@ import AwUi from 'aw-ui-vue'
 import AwCopy from 'aw-copy'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/css/base.scss'
+import {toUpperCase} from '@/utils/tools'
+Vue.prototype.$toUpperCase = toUpperCase
 Vue.config.productionTip = false
 Vue.use(JsonViewer)
 Vue.use(AwUi)

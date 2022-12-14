@@ -12,7 +12,15 @@
         </Item>
         <Item title="配置设置">
           <el-form-item label="默认值">
-            <el-input v-model="information.options.defaultValue" placeholder="" size="small" />
+            <el-select v-model="information.options.defaultValue" multiple placeholder="请选择" size="small" style="width:306px">
+              <el-option
+                v-for="item in information.options.options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              >
+              </el-option>
+            </el-select>
           </el-form-item>
           <el-form-item label="宽度">
             <el-input v-model="information.options.width" placeholder="" size="small" />

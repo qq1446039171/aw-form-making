@@ -1,5 +1,5 @@
 <template>
-  <control title="Grid 栅格布局">
+  <control :title="$toUpperCase(information.type) + ' ' + information.name">
     <el-form ref="formValidate" label-width="90px" label-position="left" size="mini">
       <el-row>
         <Item title="列配置项">
