@@ -12,25 +12,14 @@
         </Item>
         <Item title="配置设置">
           <el-form-item label="默认值">
-            <el-select
+            <el-cascader
               v-model="information.options.defaultValue"
-              multiple
-              placeholder="请选择"
+              :options="information.options.remoteOptions"
+              :props="information.options.protoProps"
+              style="width:286px"
               size="small"
-              v-if="information.options.multiple"
-              style="width: 286px"
-            >
-              <el-option
-                v-for="item in information.options.remote
-                  ? information.options.remoteOptions
-                  : information.options.options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              >
-              </el-option>
-            </el-select>
-            <el-input v-model="information.options.defaultValue" placeholder="" size="small" v-else />
+              placeholder="请选择默认值"
+            ></el-cascader>
           </el-form-item>
           <el-form-item label="宽度">
             <el-input v-model="information.options.width" placeholder="" size="small" />
@@ -43,11 +32,11 @@
             </el-switch>
           </el-form-item>
           <el-form-item label="是否可多选">
-            <el-switch v-model="information.options.multiple" active-color="#13ce66" inactive-color="#ff4949">
-            </el-switch>
-          </el-form-item>
-          <el-form-item label="是否可搜索">
-            <el-switch v-model="information.options.filterable" active-color="#13ce66" inactive-color="#ff4949">
+            <el-switch
+              v-model="information.options.protoProps.multiple"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
             </el-switch>
           </el-form-item>
           <el-form-item label="是否禁用">
@@ -56,58 +45,20 @@
           </el-form-item>
         </Item>
         <Item title="选项内容">
-          <el-form-item label="数据来源">
-            <el-radio-group v-model="information.options.remote">
-              <el-radio :label="false" :value="false">静态数据</el-radio>
-              <el-radio :label="true" :value="true">远端数据</el-radio>
-            </el-radio-group>
-          </el-form-item>
-          <template v-if="information.options.remote">
+          <!-- <el-form-item label="远端数据">
+            <el-radio :label="true" :value="true">远端数据</el-radio>
+          </el-form-item> -->
+          <template>
             <el-form-item label="远端方法">
               <el-input v-model="information.options.remoteFunc" placeholder="" size="small" />
             </el-form-item>
             <el-form-item label="值">
-              <el-input v-model="information.options.props.value" placeholder="" size="small" />
+              <el-input v-model="information.options.protoProps.value" placeholder="" size="small" />
             </el-form-item>
             <el-form-item label="标签">
-              <el-input v-model="information.options.props.label" placeholder="" size="small" />
+              <el-input v-model="information.options.protoProps.label" placeholder="" size="small" />
             </el-form-item>
           </template>
-          <el-form-item label="数据内容" v-else>
-            <draggable
-              tag="ul"
-              :list="information.options.options"
-              ghostClass="selectClass"
-              chosenClass="selectClass"
-              :group="{ name: 'options' }"
-              handle=".drag-item"
-            >
-              <li v-for="(item, index) in information.options.options" :key="index" class="drag-items">
-                <img class="drag-item" src="http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/separate-icon.png" />
-
-                <el-input placeholder="请输入Label" size="mini" style="width: 120px" v-model="item.label"></el-input>
-                <el-input
-                  placeholder="请输入Value"
-                  size="mini"
-                  style="width: 80px; margin-left: 10px"
-                  v-model="item.value"
-                ></el-input>
-
-                <el-button
-                  @click="handleOptionsRemove(index)"
-                  circle
-                  plain
-                  type="danger"
-                  size="mini"
-                  icon="el-icon-minus"
-                  style="padding: 4px; margin-left: 8px"
-                ></el-button>
-              </li>
-            </draggable>
-            <div style="margin-left: 5px">
-              <el-button type="text" @click="handleAddColumn">添加列</el-button>
-            </div>
-          </el-form-item>
         </Item>
         <Item title="效验规则">
           <el-form-item label="是否必填">
@@ -122,25 +73,18 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Draggable from 'vuedraggable'
+
 import control from '@/components/control-panel.vue'
 import Item from './components/Item.vue'
 export default {
   components: {
     control,
-    Item,
-    Draggable
+    Item
   },
   watch: {
     'information.options.required': {
       handler(newVal, oldVal) {
         this.validateRequired(newVal)
-      },
-      immediate: true
-    },
-    'information.options.remote': {
-      handler(newVal, oldVal) {
-        this.validateRemote(newVal)
       },
       immediate: true
     }
@@ -157,6 +101,37 @@ export default {
       }
     }
   },
+  mounted() {
+    const key = Date.parse(new Date()) + '_' + Math.ceil(Math.random() * 99999)
+    this.$set(this.information.options, 'remoteFunc', 'func_' + key)
+    let remoteOptions = [
+      {
+        label: 'remote1',
+        value: '1',
+        children: [
+          { label: 'remote11', value: '11' },
+          { label: 'remote12', value: '12' }
+        ]
+      },
+      {
+        label: 'remote2',
+        value: '2',
+        children: [
+          { label: 'remote21', value: '21' },
+          { label: 'remote22', value: '22' }
+        ]
+      },
+      {
+        label: 'remote3',
+        value: '3',
+        children: [
+          { label: 'remote31', value: '31' },
+          { label: 'remote32', value: '32' }
+        ]
+      }
+    ]
+    this.$set(this.information.options, 'remoteOptions', remoteOptions)
+  },
   methods: {
     validateRequired(val) {
       if (val) {
@@ -171,22 +146,22 @@ export default {
         this.generateRule()
       })
     },
-    validateRemote(val) {
-      if (val) {
-        let remoteOptions = [
-          { label: 'remote1', value: '1' },
-          { label: 'remote2', value: '2' },
-          { label: 'remote3', value: '3' }
-        ]
-        const key = Date.parse(new Date()) + '_' + Math.ceil(Math.random() * 99999)
-        this.$set(this.information.options, 'remoteFunc', 'func_' + key)
-        this.$set(this.information.options, 'remoteOptions', remoteOptions)
-        this.$set(this.information.options, 'props', { value: 'value', label: 'label' })
-      } else {
-        delete this.information.options.remoteFunc
-        //  = null
-      }
-    },
+    // validateRemote(val) {
+    //   if (val) {
+    //     let remoteOptions = [
+    //       { label: 'remote1', value: '1' },
+    //       { label: 'remote2', value: '2' },
+    //       { label: 'remote3', value: '3' }
+    //     ]
+    //
+    //     this.$set(this.information.options, 'remoteFunc', 'func_' + key)
+    //     this.$set(this.information.options, 'remoteOptions', remoteOptions)
+    //     this.$set(this.information.options, 'props', { value: 'value', label: 'label' })
+    //   } else {
+    //     delete this.information.options.remoteFunc
+    //     //  = null
+    //   }
+    // },
     generateRule() {
       this.information.rules = []
       Object.keys(this.validator).forEach((key) => {

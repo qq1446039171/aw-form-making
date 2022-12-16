@@ -126,21 +126,28 @@ const Panels = {
         }
       },
       {
-        type: 'rubik',
+        title: '级联选择器',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/rubik-icon.png',
-        title: '图片魔方',
-        content: {
-          style: 1, //风格 1  2  3  4  5  6
-          density: 4, //魔方密度
-          data: [
-            {
-              url: '',
-              link: ''
-            }
-          ]
-        },
-        //外观
-        facade: {}
+        data: {
+          type: 'cascader',
+          name: '级联选择器',
+          model: '',
+          options: {
+            width: '100%',
+            defaultValue: [],
+            placeholder: '',
+            required: false,
+            disabled: false,
+            multiple: false,
+            remoteFunc:'',
+            remoteOptions: [
+              
+            ],
+            protoProps:{ multiple: false,value: 'value', label: 'label' }
+          },
+
+          rules: []
+        }
       },
       {
         type: 'video',
