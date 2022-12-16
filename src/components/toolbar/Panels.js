@@ -138,31 +138,28 @@ const Panels = {
             placeholder: '',
             required: false,
             disabled: false,
-            multiple: false,
-            remoteFunc:'',
-            remoteOptions: [
-              
-            ],
-            protoProps:{ multiple: false,value: 'value', label: 'label' }
+            remoteFunc: '',
+            remoteOptions: [],
+            protoProps: { multiple: false, value: 'value', label: 'label' }
           },
-
           rules: []
         }
       },
       {
-        type: 'video',
+        title: '开关',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/video-icon.png',
-        title: '视频',
-        content: {
-          video: {},
-          cover: '',
-          autoplay: false,
-          loop: true,
-          source: 0,
-          address: ''
-        },
-        //外观
-        facade: {}
+        data: {
+          type: 'switch',
+          name: '开关',
+          model: '',
+          options: {
+            width: '100%',
+            defaultValue: '',
+            required: false,
+            disabled: false,
+          },
+          rules: []
+        }
       },
       {
         type: 'tabs',

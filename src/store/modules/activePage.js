@@ -3,7 +3,7 @@ const activePage = {
     activeComponent: {}, // 当前选中的模板数据
     componentsData: {
       list: [],
-      config: { labelWidth: 100, labelPosition: 'right', size: 'small', customClass: '' }
+      config: { labelWidth: 90, labelPosition: 'right', size: 'small', customClass: '' }
     },
     
   },
