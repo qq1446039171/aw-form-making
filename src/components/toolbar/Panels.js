@@ -173,6 +173,27 @@ const Panels = {
             defaultValue: ''
           }
         }
+      },
+      {
+        title: '滑块',
+        icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/video-icon.png',
+        data: {
+          type: 'slider',
+          name: '滑块',
+          model: '',
+          options: {
+            width: '100%',
+            defaultValue: '',
+            min: 0,
+            max: 100,
+            required: false,
+            disabled: false,
+            step: 1,
+            showInput: false,
+            range: true
+          },
+          rules: []
+        }
       }
     ]
   },
