@@ -183,14 +183,14 @@ const Panels = {
           model: '',
           options: {
             width: '100%',
-            defaultValue: '',
+            defaultValue: 0,
             min: 0,
             max: 100,
             required: false,
             disabled: false,
             step: 1,
             showInput: false,
-            range: true
+            range: false
           },
           rules: []
         }

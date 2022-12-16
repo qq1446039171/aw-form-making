@@ -12,19 +12,32 @@
         </Item>
         <Item title="内容设置">
           <el-form-item label="默认值">
-            <el-input-number
-              v-model="information.options.defaultValue"
-              size="small"
-              :min="information.options.min"
-              :max="information.options.max"
-              label="描述文字"
-            ></el-input-number>
+            <template v-if="information.options.range">
+              <el-input-number
+                v-model="information.options.defaultValue[0]"
+                size="small"
+                style="width: 100px"
+              ></el-input-number>
+              <el-input-number
+                v-model="information.options.defaultValue[1]"
+                size="small"
+                style="width: 100px;margin-left: 10px;"
+              ></el-input-number>
+            </template>
+            <template v-else>
+              <el-input-number
+                v-model="information.options.defaultValue"
+                size="small"
+                :min="information.options.min"
+                :max="information.options.max"
+              ></el-input-number>
+            </template>
           </el-form-item>
           <el-form-item label="最小值">
-            <el-input v-model="information.options.min" placeholder="" size="small" />
+            <el-input-number v-model="information.options.min" size="small" label="描述文字"></el-input-number>
           </el-form-item>
           <el-form-item label="最大值">
-            <el-input v-model="information.options.max" placeholder="" size="small" />
+            <el-input-number v-model="information.options.max" size="small" label="描述文字"></el-input-number>
           </el-form-item>
         </Item>
         <Item title="配置设置">
@@ -37,9 +50,6 @@
           <el-form-item label="步长">
             <el-input v-model="information.options.step" placeholder="" size="small" />
           </el-form-item>
-          <el-form-item label="是否为范围选择">
-            <el-switch v-model="information.options.range" active-color="#13ce66" inactive-color="#ff4949"> </el-switch>
-          </el-form-item>
           <el-form-item label="是否显示输入框">
             <el-switch v-model="information.options.showInput" active-color="#13ce66" inactive-color="#ff4949">
             </el-switch>
@@ -47,6 +57,10 @@
           <el-form-item label="是否禁用">
             <el-switch v-model="information.options.disabled" active-color="#13ce66" inactive-color="#ff4949">
             </el-switch>
+          </el-form-item>
+          <el-form-item label="是否为范围选择">
+            <!-- disabled -->
+            <el-switch v-model="information.options.range" active-color="#13ce66" inactive-color="#ff4949"> </el-switch>
           </el-form-item>
         </Item>
         <Item title="效验规则">
@@ -75,6 +89,12 @@ export default {
         this.validateRequired(newVal)
       },
       immediate: true
+    },
+    'information.options.range': {
+      handler(newVal, oldVal) {
+        this.validateRange(newVal)
+      },
+      immediate: true
     }
   },
   props: ['information'],
@@ -90,6 +110,13 @@ export default {
     }
   },
   methods: {
+    validateRange(val) {
+      if (val) {
+        this.information.options.defaultValue = [0, 1]
+      } else {
+        this.information.options.defaultValue = 0
+      }
+    },
     validateRequired(val) {
       if (val) {
         this.validator.required = {
