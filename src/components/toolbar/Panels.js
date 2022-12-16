@@ -152,6 +152,7 @@ const Panels = {
           type: 'switch',
           name: '开关',
           model: '',
+          labelWidth:90,
           options: {
             width: '100%',
             defaultValue: '',

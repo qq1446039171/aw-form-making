@@ -142,16 +142,13 @@ export default {
         this.setActiveComponent(e.moved.element)
       }
       if (e.added) {
-        const key = Date.parse(new Date()) + '_' + Math.ceil(Math.random() * 99999)
-        e.added.element.model == key
+        let key = Date.parse(new Date()) + '_' + Math.ceil(Math.random() * 99999)
         this.activeIndex = e.added.newIndex
         e.added.element.index = e.added.newIndex
         // 绑定键值
+
         this.$set(e.added.element, 'model', e.added.element.type + '_' + key)
-        // //  添加一个远程的方法
-        // if (e.added.element.type === 'radio') {
-        //   this.$set(e.added.element.options, 'remoteFunc', 'func_' + key)
-        // }
+        this.$set(e.added.element, 'labelWidth', this.componentsData.config.labelWidth)
         this.setActiveComponent(e.added.element)
       }
     },

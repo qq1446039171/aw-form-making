@@ -16,13 +16,16 @@
               v-model="information.options.defaultValue"
               :options="information.options.remoteOptions"
               :props="information.options.protoProps"
-              style="width:286px"
+              style="width: 286px"
               size="small"
               placeholder="请选择默认值"
             ></el-cascader>
           </el-form-item>
           <el-form-item label="宽度">
             <el-input v-model="information.options.width" placeholder="" size="small" />
+          </el-form-item>
+          <el-form-item label="label宽度">
+            <el-input v-model="information.labelWidth" placeholder="" size="small" />
           </el-form-item>
           <el-form-item label="占位内容">
             <el-input v-model="information.options.placeholder" placeholder="" size="small" />

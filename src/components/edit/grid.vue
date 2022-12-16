@@ -13,7 +13,6 @@
           >
             <li v-for="(item, index) in information.columns" :key="index" class="drag-items">
               <img class="drag-item" src="http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/separate-icon.png" />
-
               <el-input
                 placeholder="请输入数字"
                 size="mini"

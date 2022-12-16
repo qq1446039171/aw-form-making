@@ -18,6 +18,9 @@
           <el-form-item label="宽度">
             <el-input v-model="information.options.width" placeholder="" size="small" />
           </el-form-item>
+          <el-form-item label="label宽度">
+            <el-input v-model="information.labelWidth" placeholder="" size="small" />
+          </el-form-item>
           <el-form-item label="是否禁用">
             <el-switch v-model="information.options.disabled" active-color="#13ce66" inactive-color="#ff4949">
             </el-switch>

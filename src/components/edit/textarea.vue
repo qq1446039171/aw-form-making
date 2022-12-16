@@ -17,6 +17,9 @@
           <el-form-item label="宽度">
             <el-input v-model="information.options.width" placeholder="" size="small" />
           </el-form-item>
+          <el-form-item label="label宽度">
+            <el-input v-model="information.labelWidth" placeholder="" size="small" />
+          </el-form-item>
           <el-form-item label="占位内容">
             <el-input v-model="information.options.placeholder" placeholder="" size="small" />
           </el-form-item>
