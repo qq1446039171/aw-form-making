@@ -152,41 +152,26 @@ const Panels = {
           type: 'switch',
           name: '开关',
           model: '',
-          labelWidth:90,
           options: {
             width: '100%',
             defaultValue: '',
             required: false,
-            disabled: false,
+            disabled: false
           },
           rules: []
         }
       },
       {
-        type: 'tabs',
+        title: '文字',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/tabs-icon.png',
-        title: '选项卡',
-        content: {
-          data: [
-            {
-              title: '名称',
-              type: 1,
-              goods: [],
-              group: {}
-            }
-          ],
-          is_title: true,
-          is_price: true,
-          is_button: true
-        },
-        //外观
-        facade: {
-          list_style: 2, //列表样式
-          card_style: 1, //卡片样式
-          chamfer_style: 0, //倒角样式
-          margin: 10, //商品间距
-          padding: 10, //左右边距
-          backgroundColor: '#F5F5F5'
+        data: {
+          type: 'text',
+          name: '文字',
+          model: '',
+          options: {
+            width: '100%',
+            defaultValue: ''
+          }
         }
       }
     ]
