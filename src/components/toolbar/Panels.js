@@ -182,7 +182,7 @@ const Panels = {
     title: '高级字段',
     // icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/coupon-icon.png',
     // icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/task-icon.png',
-    // icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/wechat-live-icon.png',
+    // icon: '',
     children: [
       {
         title: '级联选择器',
@@ -197,10 +197,35 @@ const Panels = {
             placeholder: '',
             required: false,
             disabled: false,
-            remote:true,
+            remote: true,
             remoteFunc: '',
             remoteOptions: [],
             props: { multiple: false, value: 'value', label: 'label' }
+          },
+          rules: []
+        }
+      },
+      {
+        title: '时间选择器',
+        icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/wechat-live-icon.png',
+        data: {
+          type: 'time',
+          name: '时间选择器',
+          model: '',
+          options: {
+            width: '100%',
+            defaultValue: '',
+            format: 'HH:mm:ss',
+            isRange: false,
+            placeholder: '',
+            startPlaceholder: '',
+            endPlaceholder: '',
+            readonly: false,
+            editable: false,
+            clearable: false,
+            arrowControl: false,
+            required: false,
+            disabled: false
           },
           rules: []
         }

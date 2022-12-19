@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="预览" :visible.sync="visible" :close-on-click-modal="false">
-    <aw-form :data="json" ref="awForm"></aw-form>
+    <aw-form :data="json" @on-change="handleDataChange" ref="awForm"></aw-form>
 
     <div slot="footer" class="dialog-footer">
       <el-button icon="el-icon-circle-close" @click="visible = false"> 取消</el-button>
@@ -22,6 +22,9 @@ export default {
     show(json) {
       this.visible = true
       this.json = json
+    },
+    handleDataChange(field, value, data) {
+      console.log(field, value, data)
     },
     save() {}
   }

@@ -176,14 +176,14 @@ export default {
     },
     validateRemote(val) {
       if (val) {
-        let remoteOptions = [
-          { label: 'remote1', value: '1' },
-          { label: 'remote2', value: '2' },
-          { label: 'remote3', value: '3' }
-        ]
+        // let remoteOptions = [
+        //   { label: 'remote1', value: '1' },
+        //   { label: 'remote2', value: '2' },
+        //   { label: 'remote3', value: '3' }
+        // ]
         const key = Date.parse(new Date()) + '_' + Math.ceil(Math.random() * 99999)
         this.$set(this.information.options, 'remoteFunc', 'func_' + key)
-        this.$set(this.information.options, 'remoteOptions', remoteOptions)
+        this.$set(this.information.options, 'remoteOptions', [])
         this.$set(this.information.options, 'props', { value: 'value', label: 'label' })
       } else {
         delete this.information.options.remoteFunc

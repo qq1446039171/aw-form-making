@@ -50,7 +50,7 @@ export default function generateCode(data) {
 
   return `<template>
   <div>
-    <aw-form :data="formData" :remote="remoteList" :value="defaultData" ref="generateForm">
+    <aw-form :data="formData" :remote="remoteList" :value="defaultData" ref="awForm">
       ${blankTemplate}
     </aw-form>
     <div>
