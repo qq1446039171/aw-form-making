@@ -21,13 +21,14 @@
               <el-input-number
                 v-model="information.options.defaultValue[1]"
                 size="small"
-                style="width: 100px;margin-left: 10px;"
+                style="width: 100px; margin-left: 10px"
               ></el-input-number>
             </template>
             <template v-else>
               <el-input-number
                 v-model="information.options.defaultValue"
                 size="small"
+                :step="information.options.step"
                 :min="information.options.min"
                 :max="information.options.max"
               ></el-input-number>

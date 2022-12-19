@@ -125,26 +125,7 @@ const Panels = {
           rules: []
         }
       },
-      {
-        title: '级联选择器',
-        icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/rubik-icon.png',
-        data: {
-          type: 'cascader',
-          name: '级联选择器',
-          model: '',
-          options: {
-            width: '100%',
-            defaultValue: [],
-            placeholder: '',
-            required: false,
-            disabled: false,
-            remoteFunc: '',
-            remoteOptions: [],
-            protoProps: { multiple: false, value: 'value', label: 'label' }
-          },
-          rules: []
-        }
-      },
+
       {
         title: '开关',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/video-icon.png',
@@ -197,6 +178,35 @@ const Panels = {
       }
     ]
   },
+  marketing: {
+    title: '高级字段',
+    // icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/coupon-icon.png',
+    // icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/task-icon.png',
+    // icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/wechat-live-icon.png',
+    children: [
+      {
+        title: '级联选择器',
+        icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/rubik-icon.png',
+        data: {
+          type: 'cascader',
+          name: '级联选择器',
+          model: '',
+          options: {
+            width: '100%',
+            defaultValue: [],
+            placeholder: '',
+            required: false,
+            disabled: false,
+            remote:true,
+            remoteFunc: '',
+            remoteOptions: [],
+            props: { multiple: false, value: 'value', label: 'label' }
+          },
+          rules: []
+        }
+      }
+    ]
+  },
   layout: {
     title: '布局字段',
     children: [
@@ -224,79 +234,7 @@ const Panels = {
       }
     ]
   }
-  // marketing: {
-  //   title: '营销类',
-  //   children: [
-  //     {
-  //       type: 'coupon',
-  //       icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/coupon-icon.png',
-  //       title: '优惠券',
-  //       content: {
-  //         style: 1,
-  //         switch: 1,
-  //         autoplay: 0,
-  //         number: '',
-  //         data: []
-  //       },
-  //       //外观
-  //       facade: {
-  //         list_style: 1,
-  //         backgroundColor: '#fff5e1',
-  //         title_color: '#ff830b'
-  //       }
-  //     },
-  //     {
-  //       type: 'task',
-  //       icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/task-icon.png',
-  //       title: '任务中心',
-  //       content: {
-  //         task: {},
-  //         icon: '',
-  //         title: '去攒积分',
-  //         type: 1, //商品类型
-  //         goods: [], //选定商品按钮
-  //         auto: 20, //是否自动获取
-  //         is_title: true,
-  //         is_price: true,
-  //         is_button: true
-  //       },
-  //       facade: {
-  //         title_background: '#ffb525', //标题背景色
-  //         title_color: '#ffffff', //标题文字颜色
-  //         content_background: '#ffffff', //内容背景颜色
-  //         content_color: '#666666', //内容文字颜色
-  //         button_background: '#ffb525', //按钮背景
-  //         button_color: '#ffffff', //按钮颜色
-  //         list_style: 3, //列表样式
-  //         card_style: 1, //卡片样式
-  //         chamfer_style: 0, //倒角样式
-  //         margin: 12, //商品间距
-  //         padding: 12 //左右边距
-  //       }
-  //     },
-  //     {
-  //       type: 'wechatLive',
-  //       icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/wechat-live-icon.png',
-  //       title: '微信直播',
-  //       content: {
-  //         number: 1,
-  //         isShowGoods: true,
-  //         more: {
-  //           isShow: true,
-  //           text: '更多直播',
-  //           color: '#999999'
-  //         }
-  //       },
-  //       facade: {
-  //         list_style: 1,
-  //         backgroundColor: '#f5f5f5',
-  //         title_color: '#ff830b',
-  //         cardSpacing: 12,
-  //         leftRightMargins: 12
-  //       }
-  //     }
-  //   ]
-  // },
+
   // sales: {
   //   title: '辅助类',
   //   children: [

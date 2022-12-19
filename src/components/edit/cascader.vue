@@ -15,9 +15,10 @@
             <el-cascader
               v-model="information.options.defaultValue"
               :options="information.options.remoteOptions"
-              :props="information.options.protoProps"
+              :props="information.options.props"
               style="width: 286px"
               size="small"
+              clearable
               placeholder="请选择默认值"
             ></el-cascader>
           </el-form-item>
@@ -36,7 +37,7 @@
           </el-form-item>
           <el-form-item label="是否可多选">
             <el-switch
-              v-model="information.options.protoProps.multiple"
+              v-model="information.options.props.multiple"
               active-color="#13ce66"
               inactive-color="#ff4949"
             >
@@ -56,10 +57,10 @@
               <el-input v-model="information.options.remoteFunc" placeholder="" size="small" />
             </el-form-item>
             <el-form-item label="值">
-              <el-input v-model="information.options.protoProps.value" placeholder="" size="small" />
+              <el-input v-model="information.options.props.value" placeholder="" size="small" />
             </el-form-item>
             <el-form-item label="标签">
-              <el-input v-model="information.options.protoProps.label" placeholder="" size="small" />
+              <el-input v-model="information.options.props.label" placeholder="" size="small" />
             </el-form-item>
           </template>
         </Item>
@@ -107,33 +108,33 @@ export default {
   mounted() {
     const key = Date.parse(new Date()) + '_' + Math.ceil(Math.random() * 99999)
     this.$set(this.information.options, 'remoteFunc', 'func_' + key)
-    let remoteOptions = [
-      {
-        label: 'remote1',
-        value: '1',
-        children: [
-          { label: 'remote11', value: '11' },
-          { label: 'remote12', value: '12' }
-        ]
-      },
-      {
-        label: 'remote2',
-        value: '2',
-        children: [
-          { label: 'remote21', value: '21' },
-          { label: 'remote22', value: '22' }
-        ]
-      },
-      {
-        label: 'remote3',
-        value: '3',
-        children: [
-          { label: 'remote31', value: '31' },
-          { label: 'remote32', value: '32' }
-        ]
-      }
-    ]
-    this.$set(this.information.options, 'remoteOptions', remoteOptions)
+    // let remoteOptions = [
+    //   {
+    //     label: 'remote1',
+    //     value: '1',
+    //     children: [
+    //       { label: 'remote11', value: '11' },
+    //       { label: 'remote12', value: '12' }
+    //     ]
+    //   },
+    //   {
+    //     label: 'remote2',
+    //     value: '2',
+    //     children: [
+    //       { label: 'remote21', value: '21' },
+    //       { label: 'remote22', value: '22' }
+    //     ]
+    //   },
+    //   {
+    //     label: 'remote3',
+    //     value: '3',
+    //     children: [
+    //       { label: 'remote31', value: '31' },
+    //       { label: 'remote32', value: '32' }
+    //     ]
+    //   }
+    // ]
+    // this.$set(this.information.options, 'remoteOptions', remoteOptions)
   },
   methods: {
     validateRequired(val) {
