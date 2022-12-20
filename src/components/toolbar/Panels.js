@@ -181,8 +181,6 @@ const Panels = {
   marketing: {
     title: '高级字段',
     // icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/coupon-icon.png',
-    // icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/task-icon.png',
-    // icon: '',
     children: [
       {
         title: '级联选择器',
@@ -229,7 +227,32 @@ const Panels = {
           },
           rules: []
         }
-      }
+      },
+      {
+        title: '日期选择器',
+        icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/task-icon.png',
+        data: {
+          type: 'date',
+          name: '日期选择器',
+          model: '',
+          options: {
+            type:'date',
+            width: '100%',
+            defaultValue: '',
+            format: 'yyyy-MM-dd',
+            timestamp:false,
+            placeholder: '',
+            startPlaceholder: '',
+            endPlaceholder: '',
+            readonly: false,
+            editable: false,
+            clearable: false,
+            required: false,
+            disabled: false
+          },
+          rules: []
+        }
+      },
     ]
   },
   layout: {
