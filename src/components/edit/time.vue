@@ -17,11 +17,15 @@
         </Item>
         <Item title="配置设置">
           <el-form-item label="默认值">
-            <template v-if="information.options.isRange"> </template>
-            <template v-else>
-              <el-time-picker v-model="information.options.defaultValue" size="small" style="width: 286px">
-              </el-time-picker>
-            </template>
+            <el-time-picker
+              v-model="information.options.defaultValue"
+              :format="information.options.format"
+              :value-format="information.options.format"
+              :is-range="information.options.isRange"
+              size="small"
+              style="width: 286px"
+            >
+            </el-time-picker>
           </el-form-item>
           <el-form-item label="宽度">
             <el-input v-model="information.options.width" placeholder="" size="small" />
@@ -79,10 +83,63 @@ export default {
     control,
     Item
   },
-
+  watch: {
+    'information.options.required': {
+      handler(newVal, oldVal) {
+        this.validateRequired(newVal)
+      },
+      immediate: true
+    },
+    'information.options.isRange': {
+      handler(newVal, oldVal) {
+        this.validateRange(newVal)
+      },
+      immediate: true
+    }
+  },
   props: ['information'],
   computed: {
     ...mapGetters(['componentsData', 'activeComponent'])
+  },
+  data() {
+    return {
+      validator: {
+        type: null,
+        required: null
+      }
+    }
+  },
+  methods: {
+    validateRange(val) {
+      if (val) {
+        this.information.options.defaultValue = [new Date(2016, 9, 10, 0, 0), new Date(2016, 9, 10, 23, 59)]
+      } else {
+        this.information.options.defaultValue = ''
+      }
+    },
+    validateRequired(val) {
+      if (val) {
+        this.validator.required = {
+          required: true,
+          message: `${this.information.name}必须填写`
+        }
+      } else {
+        this.validator.required = null
+      }
+      this.$nextTick(() => {
+        this.generateRule()
+      })
+    },
+    generateRule() {
+      this.information.rules = []
+      Object.keys(this.validator).forEach((key) => {
+        if (this.validator[key]) {
+          this.information.rules.push(this.validator[key])
+          // this.$set(this.information.rules, this.information.rules.length + 1, this.validator[key])
+          console.log(this.componentsData.list)
+        }
+      })
+    }
   }
 }
 </script>
