@@ -180,7 +180,6 @@ const Panels = {
   },
   marketing: {
     title: '高级字段',
-    // icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/coupon-icon.png',
     children: [
       {
         title: '级联选择器',
@@ -236,11 +235,11 @@ const Panels = {
           name: '日期选择器',
           model: '',
           options: {
-            type:'date',
+            type: 'date',
             width: '',
             defaultValue: '',
             format: 'yyyy-MM-dd',
-            timestamp:false,
+            timestamp: false,
             placeholder: '',
             startPlaceholder: '',
             endPlaceholder: '',
@@ -253,6 +252,19 @@ const Panels = {
           rules: []
         }
       },
+      {
+        title: '空白区域',
+        icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/coupon-icon.png',
+        data: {
+          type: 'blank',
+          name: '自定义区域',
+          model: '',
+          options: {
+            width: '',
+            defaultValue: ''
+          }
+        }
+      }
     ]
   },
   layout: {

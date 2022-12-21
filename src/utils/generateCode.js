@@ -47,6 +47,14 @@ export default function generateCode(data) {
             },
     `
   }
+  for (let i = 0; i < blankList.length; i++) {
+    blankTemplate += `
+        <template slot="${blankList[i].name}" slot-scope="scope">
+          <!-- ${blankList[i].label} -->
+          <!-- use v-model="scope.model.${blankList[i].name}" to bind data -->
+        </template>
+    `
+  }
 
   return `<template>
   <div>
