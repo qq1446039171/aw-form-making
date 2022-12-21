@@ -12,7 +12,7 @@
         </Item>
         <Item title="格式">
           <el-form-item label="显示类型">
-            <el-select v-model="information.options.type" size="small" placeholder="请选择" style="width: 296px">
+            <el-select v-model="information.options.type" size="small" placeholder="请选择" style="width: 286px">
               <el-option v-for="item in options" :key="item" :label="item" :value="item"> </el-option>
             </el-select>
           </el-form-item>
@@ -27,9 +27,9 @@
               v-model="information.options.defaultValue"
               :format="information.options.format"
               :value-format="information.options.format"
-              :is-range="information.options.isRange"
               size="small"
-              style="width: 296px"
+              clearable
+              style="width: 286px"
             >
             </el-date-picker>
           </el-form-item>
@@ -39,7 +39,7 @@
           <el-form-item label="label宽度">
             <el-input v-model="information.labelWidth" placeholder="" size="small" />
           </el-form-item>
-          <template v-if="information.options.isRange">
+          <template v-if="information.options.type=='datetimerange' || information.options.type=='daterange'">
             <el-form-item label="开始时间占位内容">
               <el-input v-model="information.options.startPlaceholder" placeholder="" size="small" />
             </el-form-item>
@@ -61,6 +61,9 @@
           </el-form-item>
           <el-form-item label="是否可清空">
             <el-switch v-model="information.options.clearable" size="small"> </el-switch>
+          </el-form-item>
+          <el-form-item label="是否获取时间戳">
+            <el-switch v-model="information.options.timestamp" size="small"> </el-switch>
           </el-form-item>
         </Item>
         <Item title="效验规则">
@@ -89,6 +92,12 @@ export default {
         this.validateRequired(newVal)
       },
       immediate: true
+    },
+    'information.options.type': {
+      handler(newVal, oldVal) {
+        this.validateType(newVal)
+      },
+      immediate: true
     }
   },
   props: ['information'],
@@ -112,6 +121,42 @@ export default {
     //     this.information.options.defaultValue = ''
     //   }
     // },
+    validateType(val) {
+      switch (val) {
+        case 'year':
+          this.information.options.defaultValue = ''
+          this.information.options.format = 'yyyy'
+          break
+        case 'week':
+          this.information.options.defaultValue = ''
+          this.information.options.format = 'yyyy 第 WW 周'
+          break
+        case 'month':
+          this.information.options.defaultValue = ''
+          this.information.options.format = 'yyyy-MM'
+          break
+        case 'date':
+          this.information.options.defaultValue = ''
+          this.information.options.format = 'yyyy-MM-dd'
+          break
+        case 'dates':
+          this.information.options.defaultValue = ''
+          this.information.options.format = 'yyyy-MM-dd'
+          break
+        case 'datetime':
+          this.information.options.defaultValue = ''
+          this.information.options.format = 'yyyy-MM-dd HH:mm:ss'
+          break
+        case 'datetimerange':
+          ;(this.information.options.defaultValue = [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)]),
+            (this.information.options.format = 'yyyy-MM-dd HH:mm:ss')
+          break
+        case 'daterange':
+          ;(this.information.options.defaultValue = [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)]),
+            (this.information.options.format = 'yyyy-MM-dd')
+          break
+      }
+    },
     validateRequired(val) {
       if (val) {
         this.validator.required = {
