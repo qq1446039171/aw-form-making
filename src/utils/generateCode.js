@@ -73,7 +73,7 @@ export default function generateCode(data) {
     },
     methods: {
       save () {
-        this.$refs.generateForm.getData().then(data => {
+        this.$refs.awForm.getData().then(data => {
          
         }).catch(e => {
           

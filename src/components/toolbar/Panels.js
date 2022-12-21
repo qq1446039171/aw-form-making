@@ -10,7 +10,7 @@ const Panels = {
           name: '单行文本',
           model: '',
           options: {
-            width: '100%',
+            width: '',
             defaultValue: '',
             required: false,
             dataType: 'string',
@@ -31,7 +31,7 @@ const Panels = {
           name: '多行文本',
           model: '',
           options: {
-            width: '100%',
+            width: '',
             defaultValue: '',
             required: false,
             placeholder: '',
@@ -55,7 +55,7 @@ const Panels = {
           name: '单选框组',
           model: '',
           options: {
-            width: '100%',
+            width: '',
             defaultValue: '',
             required: false,
             disabled: false,
@@ -80,7 +80,7 @@ const Panels = {
           name: '多选框组',
           model: '',
           options: {
-            width: '100%',
+            width: '',
             defaultValue: [],
             required: false,
             disabled: false,
@@ -106,7 +106,7 @@ const Panels = {
           name: '下拉选择框',
           model: '',
           options: {
-            width: '100%',
+            width: '',
             defaultValue: '',
             placeholder: '',
             required: false,
@@ -134,7 +134,7 @@ const Panels = {
           name: '开关',
           model: '',
           options: {
-            width: '100%',
+            width: '',
             defaultValue: '',
             required: false,
             disabled: false
@@ -150,7 +150,7 @@ const Panels = {
           name: '文字',
           model: '',
           options: {
-            width: '100%',
+            width: '',
             defaultValue: ''
           }
         }
@@ -163,7 +163,7 @@ const Panels = {
           name: '滑块',
           model: '',
           options: {
-            width: '100%',
+            width: '',
             defaultValue: 0,
             min: 0,
             max: 100,
@@ -190,7 +190,7 @@ const Panels = {
           name: '级联选择器',
           model: '',
           options: {
-            width: '100%',
+            width: '',
             defaultValue: [],
             placeholder: '',
             required: false,
@@ -211,7 +211,7 @@ const Panels = {
           name: '时间选择器',
           model: '',
           options: {
-            width: '100%',
+            width: '',
             defaultValue: '',
             format: 'HH:mm:ss',
             isRange: false,
@@ -237,7 +237,7 @@ const Panels = {
           model: '',
           options: {
             type:'date',
-            width: '100%',
+            width: '',
             defaultValue: '',
             format: 'yyyy-MM-dd',
             timestamp:false,

@@ -42,7 +42,7 @@
             <el-input
               placeholder="请输入数字"
               size="mini"
-              style="width: 120px"
+              style="width: 193px"
               type="number"
               v-model.number="information.options.gutter"
             ></el-input>
