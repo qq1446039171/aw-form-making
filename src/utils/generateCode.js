@@ -61,9 +61,9 @@ export default function generateCode(data) {
     <aw-form :data="formData" :remote="remoteList" :value="defaultData" ref="awForm">
       ${blankTemplate}
     </aw-form>
-    <div>
-      <el-button icon="el-icon-circle-close"> 取消</el-button>
+    <div :style="{ marginLeft: formData.config.labelWidth + 'px' }">
       <el-button icon="el-icon-circle-check" type="primary"  @click="save"> 确认</el-button>
+      <el-button icon="el-icon-circle-close"> 取消</el-button>
     </div>
   </div>
 </template>
