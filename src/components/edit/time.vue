@@ -24,7 +24,7 @@
               :is-range="information.options.isRange"
               size="small"
               clearable
-              style="width: 286px"
+              style="width: 236px"
             >
             </el-time-picker>
           </el-form-item>

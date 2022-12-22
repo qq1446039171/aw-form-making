@@ -17,7 +17,7 @@
               multiple
               placeholder="请选择"
               size="small"
-              style="width: 306px"
+              style="width: 256px"
             >
               <el-option
                 v-for="item in information.options.remote

@@ -19,7 +19,12 @@
     </div>
     <!-- 右边部分 -->
     <div class="right-area" :style="scrollHeight">
-      <Edit />
+      <el-tabs v-model="activeName" type="border-card" stretch>
+        <el-tab-pane label="字段属性" name="list">
+          <Edit />
+        </el-tab-pane>
+        <el-tab-pane label="表单属性" name="config">配置管理</el-tab-pane>
+      </el-tabs>
     </div>
 
     <DialogJson ref="refDialogJson" />
@@ -43,7 +48,8 @@ export default {
 
   data() {
     return {
-      fullHeight: document.documentElement.clientHeight
+      fullHeight: document.documentElement.clientHeight,
+      activeName: 'list'
     }
   },
   computed: {
@@ -76,4 +82,15 @@ export default {
 
 <style lang="scss" scoped>
 @import './App.scss';
+.right-area :deep(.el-tabs--border-card) {
+  box-shadow: none;
+  border: none;
+}
+.right-area :deep(.el-tabs__content) {
+ padding: 0px;
+}
+.right-area :deep(.el-tabs__item) {
+ height: 45px;
+ line-height: 45px;
+}
 </style>

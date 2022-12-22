@@ -12,7 +12,7 @@
         </Item>
         <Item title="格式">
           <el-form-item label="显示类型">
-            <el-select v-model="information.options.type" size="small" placeholder="请选择" style="width: 286px">
+            <el-select v-model="information.options.type" size="small" placeholder="请选择" style="width: 236px">
               <el-option v-for="item in options" :key="item" :label="item" :value="item"> </el-option>
             </el-select>
           </el-form-item>
@@ -29,7 +29,7 @@
               :value-format="information.options.format"
               size="small"
               clearable
-              style="width: 286px"
+              style="width: 236px"
             >
             </el-date-picker>
           </el-form-item>

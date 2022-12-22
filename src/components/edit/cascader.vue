@@ -16,7 +16,7 @@
               v-model="information.options.defaultValue"
               :options="information.options.remoteOptions"
               :props="information.options.props"
-              style="width: 286px"
+              style="width: 236px"
               size="small"
               clearable
               placeholder="请选择默认值"
