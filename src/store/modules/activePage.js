@@ -3,9 +3,8 @@ const activePage = {
     activeComponent: {}, // 当前选中的模板数据
     componentsData: {
       list: [],
-      config: { labelWidth: 90, labelPosition: 'right', size: 'small', customClass: '' }
-    },
-    
+      config: { labelWidth: 90, labelPosition: 'right', size: 'small', customClass: '', footer: 'right' }
+    }
   },
   mutations: {
     setActiveComponent: (state, newCom) => {
@@ -14,9 +13,9 @@ const activePage = {
     setComponentsData: (state, newData) => {
       state.componentsData.list.push(newData)
     },
-    clearComponentsData:(state) => {
+    clearComponentsData: (state) => {
       state.componentsData.list = []
-    },
+    }
   },
   actions: {
     changeComponentsData(context, data) {

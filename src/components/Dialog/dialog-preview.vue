@@ -1,11 +1,11 @@
 <template>
   <el-dialog title="预览" :visible.sync="visible" :close-on-click-modal="false">
-    <aw-form :data="json" @on-change="handleDataChange" ref="awForm"></aw-form>
-
-    <div slot="footer" class="dialog-footer">
-      <el-button icon="el-icon-circle-close" @click="visible = false"> 取消</el-button>
-      <el-button icon="el-icon-circle-check" type="primary" @click="save"> 确认</el-button>
-    </div>
+    <aw-form :data="json" @on-change="handleDataChange" ref="awForm">
+      <template slot="footer">
+        <el-button icon="el-icon-circle-close" @click="visible = false"> 取消</el-button>
+        <el-button icon="el-icon-circle-check" type="primary" @click="save"> 确认</el-button>
+      </template>
+    </aw-form>
   </el-dialog>
 </template>
 

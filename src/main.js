@@ -7,6 +7,7 @@ import ElementUI from 'element-ui'
 import AwUi from 'aw-ui-vue'
 import AwCopy from 'aw-copy'
 import 'element-ui/lib/theme-chalk/index.css'
+import 'aw-ui-vue/dist/css/index.css'
 import '@/assets/css/base.scss'
 import {toUpperCase} from '@/utils/tools'
 Vue.prototype.$toUpperCase = toUpperCase

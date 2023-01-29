@@ -57,6 +57,22 @@
                       <el-option v-for="item in sizeOptions" :key="item" :label="item" :value="item"> </el-option>
                     </el-select>
                   </el-form-item>
+                  <el-form-item label="footer对齐方式">
+                    <el-select
+                      v-model="componentsData.config.footer"
+                      size="small"
+                      placeholder="请选择"
+                      style="width: 236px"
+                    >
+                      <el-option
+                        v-for="item in footerPositionOptions"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      >
+                      </el-option>
+                    </el-select>
+                  </el-form-item>
                 </Item>
               </el-row>
             </el-form>
@@ -103,6 +119,20 @@ export default {
         {
           label: '顶部对齐',
           value: 'top'
+        }
+      ],
+      footerPositionOptions: [
+        {
+          label: '左对齐',
+          value: 'left'
+        },
+        {
+          label: '居中对齐',
+          value: 'center'
+        },
+        {
+          label: '右对齐',
+          value: 'right'
         }
       ]
     }
