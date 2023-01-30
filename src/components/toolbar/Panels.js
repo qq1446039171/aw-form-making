@@ -253,7 +253,7 @@ const Panels = {
         }
       },
       {
-        title: '空白区域',
+        title: '自定义插槽',
         icon: 'http://qmxq.oss-cn-hangzhou.aliyuncs.com/pageicon/coupon-icon.png',
         data: {
           type: 'blank',
