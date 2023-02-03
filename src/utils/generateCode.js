@@ -58,7 +58,7 @@ export default function generateCode(data) {
 
   return `<template>
   <div>
-    <aw-form :data="formData" :remote="remoteList" :value="defaultData" ref="awForm">
+    <aw-form :data="formData" :remote="remoteList" :value="defaultData" @on-change="handleDataChange" ref="awForm">
       ${blankTemplate}
       <template slot="footer">
         <el-button icon="el-icon-circle-close">取 消</el-button>
@@ -86,6 +86,10 @@ export default function generateCode(data) {
         }).catch(e => {
           
         })
+      },
+      handleDataChange(field,value,models){
+        console.log(field);
+        console.log(value);
       }
     }
   }
