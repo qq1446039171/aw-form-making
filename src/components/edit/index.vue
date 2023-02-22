@@ -11,7 +11,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import EditPanel from './componentPanel'
+import EditPanel from './component-panel'
 export default {
   computed: {
     ...mapGetters(['activeComponent'])
