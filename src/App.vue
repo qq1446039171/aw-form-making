@@ -151,7 +151,8 @@ export default {
       this.clearComponentsData()
     },
     showDialogJson() {
-      this.$refs.refDialogJson.show(this.componentsData)
+      let data = JSON.parse(JSON.stringify(this.componentsData))
+      this.$refs.refDialogJson.show(data)
     },
     showDialogPreview() {
       // let data = generateCode(JSON.stringify(this.componentsData))
