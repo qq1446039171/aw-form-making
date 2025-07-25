@@ -3,5 +3,7 @@ module.exports = defineConfig({
   transpileDependencies: true,
 
   lintOnSave: false,
-  publicPath: './'
+  publicPath: './',
+  // 修改输出目录为 docs
+  outputDir: 'docs',
 })
